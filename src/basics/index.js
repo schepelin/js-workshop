@@ -47,10 +47,13 @@ function sum(a, b) {
 }
 sum(1, 2)
 
+
+// this approach preferable for fat-arrow functions
 const mult = function(a, b) {
     return a * b
 }
 
+// fat-arrow functions
 const div = (a, b) => a / b
 
 const pow = (a, b) => {
@@ -60,8 +63,22 @@ const pow = (a, b) => {
 }
 
 
+// function with default parameters
+function repeat(str, count = 2) {
+    const array = new Array(count)
+    return array.fill(str).join('')
+}
+
+// named parameters passes as object
+
+function join({ items, separator }) {
+    return items.join(separator)
+}
+
+join({items: [1, 2, 3], separator: ':'})
+
 // ----------
-// conditions, loops and scoupes
+// conditions, loops
 // ----------
 
 const a = 42
@@ -72,3 +89,6 @@ if (a !== b) {
     console.log(result)
 }
 console('there is no result', result)
+
+
+// scopes
