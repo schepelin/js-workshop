@@ -84,6 +84,12 @@ join({items: [1, 2, 3], separator: ':'})
 const a = 42
 const b = 'other'
 
+// works for every value of something except null, undefined, '' and 0
+let empty = null
+if (empty) console.log('full')
+
+if (!empty) console.log('empty')
+
 if (a !== b) {
     let result = "you're lier!"
     console.log(result)
