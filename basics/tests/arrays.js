@@ -15,9 +15,9 @@ test('matchEnds function', (t) => {
 })
 
 test('xLetterFirst function', (t) => {
-  t.equal(xLetterFirst(['bbb', 'ccc', 'axx', 'xzz', 'xaa']), ['xaa', 'xzz', 'axx', 'bbb', 'ccc'])
-  t.equal(xLetterFirst(['ccc', 'bbb', 'aaa', 'xcc', 'xaa']), ['xaa', 'xcc', 'aaa', 'bbb', 'ccc'])
-  t.equal(
+  t.deepEqual(xLetterFirst(['bbb', 'ccc', 'axx', 'xzz', 'xaa']), ['xaa', 'xzz', 'axx', 'bbb', 'ccc'])
+  t.deepEqual(xLetterFirst(['ccc', 'bbb', 'aaa', 'xcc', 'xaa']), ['xaa', 'xcc', 'aaa', 'bbb', 'ccc'])
+  t.deepEqual(
         xLetterFirst(['mix', 'xyz', 'apple', 'xanadu', 'aardvark']),
         ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
     )
@@ -26,9 +26,9 @@ test('xLetterFirst function', (t) => {
 })
 
 test('sortByLast function', (t) => {
-  t.equal(sortByLast([[1, 3], [3, 2], [2, 1]]), [[2, 1], [3, 2], [1, 3]])
-  t.equal(sortByLast([[2, 3], [1, 2], [3, 1]]), [[3, 1], [1, 2], [2, 3]])
-  t.equal(
+  t.deepEqual(sortByLast([[1, 3], [3, 2], [2, 1]]), [[2, 1], [3, 2], [1, 3]])
+  t.deepEqual(sortByLast([[2, 3], [1, 2], [3, 1]]), [[3, 1], [1, 2], [2, 3]])
+  t.deepEqual(
         sortByLast(([[1, 7], [1, 3], [3, 4, 5], [2, 2]]), [[2, 2], [1, 3], [3, 4, 5], [1, 7]])
     )
 

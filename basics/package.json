@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "prestart": "npm install --global babel-cli && npm install",
-    "test": "node_modules/.babel-node tests/index.js | node_modules/.bin/tap-spec"
+    "test": "node_modules/.bin/babel-node tests/index.js | node_modules/.bin/tap-spec"
   },
   "devDependencies": {
     "babel": "^6.5.2",

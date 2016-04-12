@@ -3,7 +3,7 @@ import test from 'blue-tape'
 import { collectByFirstLetter } from './../exercises/objects'
 
 test('collectByFirstLetter function', (t) => {
-  t.equal(
+  t.deepEqual(
     collectByFirstLetter('test', 'foo', 'bar', 'farm', 'trust', 'ham', 'harm'),
     {
       t: ['test', 'trust'],

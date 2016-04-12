@@ -1,3 +1,4 @@
-import './strings'
-import './arrays'
-import './index'
+// import './strings'
+// import './arrays'
+// import './objects'
+import './functions'
