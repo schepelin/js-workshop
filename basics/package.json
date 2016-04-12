@@ -5,16 +5,15 @@
   "main": "src/index.js",
   "scripts": {
     "prestart": "npm install --global babel-cli && npm install",
-    "start": "babel-node src/index.js",
-    "test": "babel-node tests/index.js"
+    "test": "node_modules/.babel-node tests/index.js | node_modules/.bin/tap-spec"
   },
   "devDependencies": {
     "babel": "^6.5.2",
+    "babel-cli": "^6.7.5",
     "babel-eslint": "^4.1.8",
     "babel-preset-es2015": "^6.5.0",
-    "babel-preset-stage-3": "^6.5.0"
-  },
-  "dependencies": {
-    "blue-tape": "^0.2.0"
+    "babel-preset-stage-3": "^6.5.0",
+    "blue-tape": "^0.2.0",
+    "tap-spec": "^4.1.1"
   }
 }

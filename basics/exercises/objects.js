@@ -10,5 +10,5 @@ and sorted words array as a value
 }
 */
 export function collectByFirstLetter(...words) {
-    return {}
+  return {}
 }

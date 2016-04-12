@@ -26,9 +26,9 @@ str.toString() // 'foo'
 
 let baz = 'something'
 const iamObject = {
-    baz,  // shortcuy for baz: 'something'
-    foo: 'bar',
-    'complicated-name': 'foo',
+  baz,  // shortcuy for baz: 'something'
+  foo: 'bar',
+  'complicated-name': 'foo',
 }
 
 const { foo } = iamObject
@@ -43,36 +43,35 @@ const [first, second, ...rest] = aimArray
 // ---------
 
 function sum(a, b) {
-    return a = b
+  return a = b
 }
 sum(1, 2)
 
 
 // this approach preferable for fat-arrow functions
 const mult = function(a, b) {
-    return a * b
+  return a * b
 }
 
 // fat-arrow functions
 const div = (a, b) => a / b
 
 const pow = (a, b) => {
-    console.log(a)
-    console.log(b)
-    return a ** b
+  console.log(a)
+  console.log(b)
+  return a ** b
 }
-
 
 // function with default parameters
 function repeat(str, count = 2) {
-    const array = new Array(count)
-    return array.fill(str).join('')
+  const array = new Array(count)
+  return array.fill(str).join('')
 }
 
 // named parameters passes as object
 
 function join({ items, separator }) {
-    return items.join(separator)
+  return items.join(separator)
 }
 
 join({items: [1, 2, 3], separator: ':'})
@@ -91,10 +90,19 @@ if (empty) console.log('full')
 if (!empty) console.log('empty')
 
 if (a !== b) {
-    let result = "you're lier!"
-    console.log(result)
+  let result = "you're lier!"
+  console.log(result)
 }
 console('there is no result', result)
 
+
+let i
+for (i = 0; i < 10, i++) {
+  console.log(i)
+}
+
+for (let a of [1, 2, 3]) {
+  console.log(a)
+}
 
 // scopes
