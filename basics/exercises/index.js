@@ -1,9 +1,11 @@
 const num = 42
 
 let str
-console.log('typo of str is', typeof str)
+console.log('type of str is', typeof str)
 str = 'foo'
-console.log('Now typo of str is', typeof str)
+console.log('Now type of str is', typeof str)
+
+// different equations
 
 let a = 42
 let b = '42'
@@ -15,6 +17,7 @@ console.log(false == '')
 console.log(null == undefined) // ?
 console.log(null === undefined) // ?
 
+// basic operations
 
 console.log('Add number and string', num + str)  // '42foo'
 
@@ -30,6 +33,10 @@ const iamObject = {
   foo: 'bar',
   'complicated-name': 'foo',
 }
+
+const iamArray = [1, 2, 3, 'foo']
+
+// desctructing
 
 const { foo } = iamObject
 console.log(foo)  // 'bar'
@@ -105,4 +112,26 @@ for (let a of [1, 2, 3]) {
   console.log(a)
 }
 
-// scopes
+// -----------
+// closures
+// -----------
+
+function outer() {
+  const outerVar = 42
+  // innerVar is unknow here. We can't access to it here
+  return function inner() {
+    console.log(outerVar) // it's available in inner scope
+    const innerVar = 1
+    return outerVar + innerVar
+
+  }
+}
+
+
+function getGenerator() {
+  let value = 0
+  return function() {
+    value = value + 1
+    return value
+  }
+}
