@@ -12,6 +12,6 @@ describe('selectId', () => {
 
     const selectId = require('../exercises').selectId
 
-    expect(selectId(document, '42')[0].getAttribute('ref'), '1.1')
+    expect(selectId(document, '42').getAttribute('ref'), '1.1')
   })
 })
