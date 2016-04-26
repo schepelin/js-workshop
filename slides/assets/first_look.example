@@ -1,0 +1,22 @@
+
+class Servant {
+  constructor(name, greeting) {
+    this.name = name
+    this.greeting = greeting
+  }
+  introduce() {
+    return `Good morning. I am ${this.name}`
+  }
+  greet(person) {
+    return this.greeting(person)
+  }
+  sayCompliment() {
+    return "I hope, you will understand this code soon!"
+  }
+}
+
+const alfred = new Servant("Alfred", (name) => `Hello, ${name}`)
+
+alfred.introduce() // Good morning. I am Alfred
+alfred.greet("Batman") //Hello, Batman
+alfred.sayCompliment() // I hope, you will understand this code soon!
