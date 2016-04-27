@@ -1,0 +1,27 @@
+let a
+typeof a // undefined
+
+a = true
+typeof a // boolean
+
+let b = 42
+typeof b // number
+b = 2.7182818284
+typeof b // number
+
+let c = 'Hello world'
+typeof c // string
+
+let iamArray = [1, 2, 4]
+typeof iamArray // object
+
+let iamObject = {
+  name: 'John Smith',
+  age: 42,
+}
+typeof iamObject // object
+
+const sum = function (a, b) { return a + b }
+typeof sum // function
+
+// TODO: Add equation examples and demonstrate special values

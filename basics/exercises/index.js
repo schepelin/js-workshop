@@ -50,7 +50,7 @@ const [first, second, ...rest] = aimArray
 // ---------
 
 function sum(a, b) {
-  return a = b
+  return a + b
 }
 sum(1, 2)
 
