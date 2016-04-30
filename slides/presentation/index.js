@@ -132,7 +132,7 @@ export default class Presentation extends React.Component {
               { loc: [8, 11], note: "Second approach is use let keyword" },
               { loc: [11, 15], note: "let and const are block scope binded" },
               { loc: [16, 20], note: "However, old style var is not" },
-              { loc: [0, 0], title: "What is preferable let or const?" }
+              { loc: [0, 0], title: "Which one is better let or const?" }
             ]}
           />
 
@@ -148,7 +148,12 @@ export default class Presentation extends React.Component {
               { loc: [11, 13], note: "String declaration" },
               { loc: [14, 16], note: "Array has a type of `object`" },
               { loc: [17, 22], note: "Actually, there is no difference between array and object" },
-              { loc: [23, 25], note: "And last one is `function`" }
+              { loc: [23, 25], note: "And last one is `function`" },
+              { loc: [28, 29], title: "Comparation" },
+              { loc: [29, 33], note: "There are two types of comparation with and without type check" },
+              { loc: [32, 35], note: "Object are always not equal" },
+              { loc: [38, 40], note: "Property does not exist" },
+              { loc: [41, 46], note: "There is special value for `empty` fields" }
             ]}
           />
 

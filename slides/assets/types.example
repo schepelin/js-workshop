@@ -24,4 +24,30 @@ typeof iamObject // object
 const sum = function (a, b) { return a + b }
 typeof sum // function
 
-// TODO: Add equation examples and demonstrate special values
+// Comparation
+
+42 == 42
+42 == '42'   // true
+42 === '42'  // false
+42 !== '42'  // false
+
+{ foo:'bar' } == { foo:'bar' }  // ?
+[1, 2, 3] == [1, 2, 3]  // ?
+
+// null value
+
+const person = { name: 'John Smith' }
+console.log(person.country) // undefined
+
+const person = {
+  name: 'John Smith',
+  country: null,
+}
+console.log(person.country) // null
+
+//Type coercion
+
+false + 42 = ?
+true + 42 = ?
+
+100500 / 0 = ?
