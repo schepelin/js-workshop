@@ -37,79 +37,77 @@ const images = {
 preloader(images)
 
 const theme = createTheme({
-  primary: "#e8e40c",
+  primary: "#122b45",
   bgSecondary: "#000000",
-  textSecondary: "#fcfcfc",
-  quartenary: "#122b45"
+  textSecondary: "#cccccc",
+  textPrimary: "#cc99cd"
 })
 
 const code = {
   closure: require("raw!../assets/closure.example"),
   firstLook: require("raw!../assets/first_look.example"),
   variables: require("raw!../assets/variables.example"),
-  types: require("raw!../assets/types.example")
+  types: require("raw!../assets/types.example"),
+  typeCoercion: require("raw!../assets/type_coercion.example")
 }
 
 export default class Presentation extends React.Component {
   render() {
     return (
       <Spectacle theme={theme}>
-        <Deck transition={["slide"]} transitionDuration={500} progress="bar">
+        <Deck transition={["slide"]} transitionDuration={500} progress="pacman">
           <Slide transition={[]} bgColor="primary">
-            <Heading size={1} fit caps lineHeight={1} textColor="bgSecondary">
+            <Heading size={1} fit caps lineHeight={1} textColor="textPrimary">
               JavaScript
             </Heading>
-            <Heading size={1} caps textColor="bgSecondary">
+            <Heading size={1} caps textColor="textSecondary">
               Language basics
             </Heading>
-            <Link href="https://github.com/FormidableLabs/spectacle">
-              <Text bold caps textColor="textSecondary">View on Github</Text>
-            </Link>
           </Slide>
 
-          <Slide transition={["slide"]} bgColor="bgSecondary">
+          <Slide transition={["slide"]} bgColor="primary">
             <Image src={images.eich.replace("/", "")} margin="0px auto 40px" height="293px"/>
-            <Text bold caps textColor="textSecondary">Was invented by Brendan Eich in 1995</Text>
-            <Text bold textColor="textSecondary">It was designed to consolidate all the things like images styles java applets etc</Text>
+            <Text bold caps textColor="textPrimary">Was invented by Brendan Eich in 1995</Text>
+            <Text textColor="textSecondary">It was designed to consolidate all the things like images styles java applets etc</Text>
           </Slide>
 
           <Slide transition={["slide"]} bgColor="primary">
             <Layout>
               <Fill>
-                <Heading size={5} caps bgColor="primary" margin={10}>1995</Heading>
+                <Heading size={5} textColor="textPrimary" caps bgColor="primary" margin={10}>1995</Heading>
                 <Text textColor="textSecondary">Javascript released in Netscape</Text>
               </Fill>
               <Fill>
-                <Heading size={5} caps bgColor="primary" margin={10}>1996</Heading>
+                <Heading size={5} textColor="textPrimary" caps bgColor="primary" margin={10}>1996</Heading>
                 <Text textColor="textSecondary">JScript by Microsoft released</Text>
               </Fill>
               <Fill>
-                <Heading size={5} caps bgColor="primary" margin={10}>1997</Heading>
+                <Heading size={5} textColor="textPrimary" caps bgColor="primary" margin={10}>1997</Heading>
                 <Text textColor="textSecondary">Javascript standartized by ECMA. ECMAScript1 specification released</Text>
               </Fill>
               <Fill>
-                <Heading size={5} caps bgColor="primary" margin={10}>2009</Heading>
+                <Heading size={5} textColor="textPrimary" caps bgColor="primary" margin={10}>2009</Heading>
                 <Text textColor="textSecondary">ECMAScript5 released</Text>
               </Fill>
               <Fill>
-                <Heading size={5} caps bgColor="primary" margin={10}>2015</Heading>
+                <Heading size={5} textColor="textPrimary" caps bgColor="primary" margin={10}>2015</Heading>
                 <Text textColor="textSecondary">ECMAScript6 specification released</Text>
               </Fill>
             </Layout>
           </Slide>
 
           <Slide transition={["slide"]} bgColor="primary">
-            <Heading size={2} bgColor="primary" margin={10}>ECMAScript 6 or 2015</Heading>
-            <Text textColor="textSecondary">Was designed to correct previous mistakes and inconveniences</Text>
+            <Heading size={2} bgColor="primary" textColor="textPrimary" margin={10}>ECMAScript 6/2015</Heading>
+            <Text textColor="textSecondary">Was designed to correct previous specs mistakes and inconveniences</Text>
             <Text textColor="textSecondary">Add a lot of syntactic sugar</Text>
           </Slide>
           <Slide>
-            <Heading size={2} bgColor="primary">Rise of the transpilers</Heading>
-            <Text>Tools that allow use a new language features and transpile it to old language spec</Text>
+            <Heading size={2} bgColor="primary" textColor="textPrimary">Rise of the transpilers</Heading>
+            <Text textColor="textSecondary">Tools that allow use a new language features and transpile it to old language spec</Text>
           </Slide>
 
           <Slide>
-            <Heading size={1} bgColor="primary">Language basics</Heading>
+            <Heading size={1} bgColor="primary" textColor="textPrimary">Language basics</Heading>
           </Slide>
 
           <Slide transition={["zoom", "fade"]} bgColor="primary">
@@ -132,7 +130,9 @@ export default class Presentation extends React.Component {
               { loc: [8, 11], note: "Second approach is use let keyword" },
               { loc: [11, 15], note: "let and const are block scope binded" },
               { loc: [16, 20], note: "However, old style var is not" },
-              { loc: [0, 0], title: "Which one is better let or const?" }
+              { loc: [0, 0], title: "Which one is better let or const?" },
+              { loc: [21, 27], note: "Object desctructing" },
+              { loc: [28, 30], note: "Array desctructing" }
             ]}
           />
 
@@ -140,6 +140,7 @@ export default class Presentation extends React.Component {
             transition={["slide"]}
             lang="js"
             code={code.types}
+            notes={'Ask if it is possible contstruction [1,2, \'foo\', undefined] ?'}
             ranges={[
               { loc: [0, 0], title: "Types" },
               { loc: [0, 2], note: "Any unassigned variable or attribute is `undefined`" },
@@ -150,10 +151,23 @@ export default class Presentation extends React.Component {
               { loc: [17, 22], note: "Actually, there is no difference between array and object" },
               { loc: [23, 25], note: "And last one is `function`" },
               { loc: [28, 29], title: "Comparation" },
-              { loc: [29, 33], note: "There are two types of comparation with and without type check" },
-              { loc: [32, 35], note: "Object are always not equal" },
+              { loc: [29, 32], note: "There are two types of comparation with and without type check" },
+              { loc: [33, 35], note: "Object are always not equal" },
               { loc: [38, 40], note: "Property does not exist" },
               { loc: [41, 46], note: "There is special value for `empty` fields" }
+            ]}
+          />
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
+            code={code.typeCoercion}
+            notes={'Ask is the result of 42 + true'}
+            ranges={[
+              { loc: [0, 0], title: "Type coercion" },
+              { loc: [0, 2], note: "Does it throw an error?" },
+              { loc: [3, 4], note: "How about it?" },
+              { loc: [5, 7], note: "And even it works fine!" },
+              { loc: [8, 10], note: "One more special value" }
             ]}
           />
 
@@ -169,6 +183,33 @@ export default class Presentation extends React.Component {
               { loc: [11, 15], note: "Closure used here to keep a value of counter" }
             ]}
           />
+          <Slide>
+            <Heading size={2} bgColor="primary" textColor="textPrimary">Let's try</Heading>
+            <Text
+              margin="20px 0px 0px"
+              textColor="textSecondary"
+              textFont="Lucida Console"
+              textAlign="left"
+            >
+            sudo apt-get install git
+            </Text>
+            <Text
+              margin="20px 0px 0px"
+              textColor="textSecondary"
+              textFont="Lucida Console"
+              textAlign="left"
+            >
+            mkdir ~/workshop && cd ~/workshop
+            </Text>
+            <Text
+              margin="20px 0px 0px"
+              textColor="textSecondary"
+              textFont="Lucida Console"
+              textAlign="left"
+            >
+            git clone https://github.com/schepelin/js-workshop.git
+            </Text>
+          </Slide>
         </Deck>
       </Spectacle>
     )

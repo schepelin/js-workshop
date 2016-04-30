@@ -44,10 +44,3 @@ const person = {
   country: null,
 }
 console.log(person.country) // null
-
-//Type coercion
-
-false + 42 = ?
-true + 42 = ?
-
-100500 / 0 = ?

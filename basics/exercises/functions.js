@@ -22,7 +22,6 @@ gen() -> 5
 ...
 */
 export function fibGenerator() {
-
 }
 
 
@@ -36,9 +35,5 @@ returns new array with elements matched to filter
 
 */
 export function filter(array, fn) {
-  const result = []
-  for (let item of array) {
-    if (fn(item)) result.push(item)
-  }
-  return result
+  return
 }

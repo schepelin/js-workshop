@@ -18,3 +18,13 @@ for (var i = 0; i < 10; i++) {
   console.log(i)
 }
 console.log(i) // 10
+
+const person = {
+  name: 'Smith',
+  age: 42,
+  country: 'GB'
+}
+const { name, age } = person
+
+const items = [1, 2, 3, 4]
+const [first, second, ...rest] = items

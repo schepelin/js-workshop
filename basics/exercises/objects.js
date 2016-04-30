@@ -30,12 +30,5 @@ Note: It should ignore punctuation marks and uppercese symbols!
 '' yields {}
 */
 export function wordsCount(text) {
-  const result = {}
-  const clean = item => item.replace('?', '').replace('!', '').replace(',', '').replace('.', '').toLowerCase()
-  for (let word of text.split(' ')) {
-    const cleaned = clean(word)
-    if (cleaned.length) result[cleaned] = (result[cleaned] || 0) + 1
-
-  }
-  return result
+  return {}
 }
