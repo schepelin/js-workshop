@@ -40,7 +40,7 @@ const theme = createTheme({
   primary: "#122b45",
   bgSecondary: "#000000",
   textSecondary: "#cccccc",
-  textPrimary: "#cc99cd"
+  textPrimary: "#f6cc3d"
 })
 
 const code = {
@@ -48,7 +48,9 @@ const code = {
   firstLook: require("raw!../assets/first_look.example"),
   variables: require("raw!../assets/variables.example"),
   types: require("raw!../assets/types.example"),
-  typeCoercion: require("raw!../assets/type_coercion.example")
+  typeCoercion: require("raw!../assets/type_coercion.example"),
+  conditions: require("raw!../assets/conditions.example"),
+  loops: require("raw!../assets/loops.example")
 }
 
 export default class Presentation extends React.Component {
@@ -168,6 +170,31 @@ export default class Presentation extends React.Component {
               { loc: [3, 4], note: "How about it?" },
               { loc: [5, 7], note: "And even it works fine!" },
               { loc: [8, 10], note: "One more special value" }
+            ]}
+          />
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
+            code={code.conditions}
+            ranges={[
+              { loc: [0, 0], title: "Conditions" },
+              { loc: [0, 6], note: "If something is true do one thing else anther" },
+              { loc: [7, 11], note: "Value will be caseted to boolean automatically" },
+              { loc: [12, 15], note: "&& is `and` operator" },
+              { loc: [16, 19], note: "|| is `or` operator" },
+              { loc: [20, 23], note: "Explicit casting to boolean" }
+            ]}
+          />
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
+            code={code.loops}
+            ranges={[
+              { loc: [0, 0], title: "Loops" },
+              { loc: [0, 3], note: "Iterate over counter" },
+              { loc: [4, 7], note: "Iterate over array" },
+              { loc: [8, 13], note: "But what if I want to iterate over object?" },
+              { loc: [13, 17], note: "I can iterate over keys and get values" }
             ]}
           />
 

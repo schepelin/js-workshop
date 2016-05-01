@@ -1,0 +1,17 @@
+for (let i = 0; i < 10, i++) {
+  console.log(i)
+}
+
+for (let word of ['foo', 'bar', 'baz']) {
+  console.log(word)
+}
+
+const person = {
+  name: 'John Smith',
+  age: 42,
+  greet() { return 'Hello!' },
+}
+for (let key of Object.keys(person)) {
+  console.log('key is', key)
+  console.log('value is', person[key])
+}

@@ -103,8 +103,7 @@ if (a !== b) {
 console('there is no result', result)
 
 
-let i
-for (i = 0; i < 10, i++) {
+for (let i = 0; i < 10, i++) {
   console.log(i)
 }
 

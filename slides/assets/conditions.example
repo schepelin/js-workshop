@@ -1,0 +1,23 @@
+const value = Math.random()
+if (value > 0.5) {
+  console.log('Glass is half full')
+} else {
+  console.log('Glass is half empty')
+}
+
+// '', 0, false, null, undefined are falsy
+const falsy = ''
+if (falsy) console.log('it will never run')
+if (!falsy) console.log('it will run')
+
+if (something && another) {
+  console.log('it will be printed only if both are true')
+}
+
+if (some || another) {
+  console.log('it will be printed if at least one is true')
+}
+
+let a = 0
+Boolean(a) === false
+!!a === false
