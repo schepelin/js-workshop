@@ -50,7 +50,8 @@ const code = {
   types: require("raw!../assets/types.example"),
   typeCoercion: require("raw!../assets/type_coercion.example"),
   conditions: require("raw!../assets/conditions.example"),
-  loops: require("raw!../assets/loops.example")
+  loops: require("raw!../assets/loops.example"),
+  functions: require("raw!../assets/functions.example")
 }
 
 export default class Presentation extends React.Component {
@@ -195,6 +196,20 @@ export default class Presentation extends React.Component {
               { loc: [4, 7], note: "Iterate over array" },
               { loc: [8, 13], note: "But what if I want to iterate over object?" },
               { loc: [13, 17], note: "I can iterate over keys and get values" }
+            ]}
+          />
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
+            code={code.functions}
+            ranges={[
+              { loc: [0, 0], title: "Functions" },
+              { loc: [0, 3], note: "Named function" },
+              { loc: [4, 7], note: "Anonymous function" },
+              { loc: [8, 11], note: "Arrow function" },
+              { loc: [12, 13], note: "Single sile arrow function" },
+              { loc: [15, 16], note: "Arrow function example" },
+              { loc: [17, 25], note: "Function with variable number of arguments" }
             ]}
           />
 

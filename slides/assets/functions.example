@@ -1,0 +1,25 @@
+function sum(a, b) {
+  return a + b
+}
+
+const mult = function(a, b) {
+  return a * b
+}
+
+const pow = (a, b) => {
+  return a ** b
+}
+
+const div = (a, b) => a / b
+
+// case for arrow functions
+[1, 2, 3].map(x => x * 2) // [2, 4, 6]
+
+function sumAll(...args) {
+  let sum = 0
+  for (let i of args) {
+    sum += i
+  }
+  return sum
+}
+sumAll(1,2,3,4)  // 10
