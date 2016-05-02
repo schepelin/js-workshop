@@ -8,9 +8,19 @@ and last chars of the string are the same.
 */
 export function matchEnds(words) {
   // your code here
-  return
 }
 
+/*
+Given an array of numbers, return new array where
+first element is diffrence between maximum and minimum of passed array
+last element is sum of minimum and maximum
+and passed array in center
+[1, 2, 3] yields [2, 1, 2, 3, 4]
+[5, 2, 14] yields [12, 5, 2, 14, 19]
+*/
+export function addFirstAndLast(numbers) {
+  // your code here
+}
 
 /*
 Given a list of strings, return a list with the strings
@@ -22,7 +32,6 @@ before combining them.
 */
 export function xLetterFirst(words) {
   // your code here
-  return
 }
 
 /*
@@ -33,5 +42,4 @@ e.g. [[1, 7], [1, 3], [3, 4, 5], [2, 2]] yields
 */
 export function sortByLast(nestedArrays) {
   // your code here
-  return
 }

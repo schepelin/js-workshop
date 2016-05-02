@@ -10,9 +10,18 @@ and sorted words array as a value
 }
 */
 export function collectByFirstLetter(...words) {
-  return {}
+
 }
 
+/*
+Write a function which receives oject and list of keys
+and returns object with only keys passed in arguments.
+unknow keys are ignored
+{name: 'John', age: 42}, name yields {name: 'John'}
+*/
+export function only(obj, ...keys) {
+
+}
 
 /*
 Functon counts a words in givent text.
@@ -30,5 +39,5 @@ Note: It should ignore punctuation marks and uppercese symbols!
 '' yields {}
 */
 export function wordsCount(text) {
-  return {}
+
 }

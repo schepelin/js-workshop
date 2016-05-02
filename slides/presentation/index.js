@@ -51,7 +51,8 @@ const code = {
   typeCoercion: require("raw!../assets/type_coercion.example"),
   conditions: require("raw!../assets/conditions.example"),
   loops: require("raw!../assets/loops.example"),
-  functions: require("raw!../assets/functions.example")
+  functions: require("raw!../assets/functions.example"),
+  objects: require("raw!../assets/objects.example")
 }
 
 export default class Presentation extends React.Component {
@@ -136,6 +137,31 @@ export default class Presentation extends React.Component {
               { loc: [0, 0], title: "Which one is better let or const?" },
               { loc: [21, 27], note: "Object desctructing" },
               { loc: [28, 30], note: "Array desctructing" }
+            ]}
+          />
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
+            code={code.objects}
+            ranges={[
+              { loc: [0, 0], title: "Objects" },
+              { loc: [0, 6], note: "Simple object definition" },
+              { loc: [7, 11], note: "Access to properties" },
+              { loc: [10, 11], note: "Any unknown property is undefined" },
+              { loc: [13, 19], note: "Modify object properties" },
+              { loc: [21, 36], note: "Real example" },
+              { loc: [26, 29], note: "Shortcut for creating properties" },
+              { loc: [29, 30], note: "Computed property in []" },
+
+              { loc: [31, 34], note: "Access to computed property" },
+              { loc: [37, 39], note: "Usage example" },
+
+              { loc: [42, 49], note: "Creating new object based on existing" },
+              { loc: [43, 44], note: "First unpack existing object" },
+              { loc: [44, 46], note: "It is possible to override properties" },
+              { loc: [46, 48], note: "Also you can create new properties" },
+              { loc: [50, 51], note: "And you still have access to old's obect attributes" }
             ]}
           />
 

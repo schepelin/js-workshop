@@ -1,4 +1,4 @@
-import test from 'blue-tape'
+import test from 'tape-catch'
 
 import {
   map,
@@ -6,15 +6,22 @@ import {
   filter,
 } from './../exercises/functions'
 
-test('map function', (t) => {
-  t.deepEqual(map([1, 2, 3], x => x * x), [1, 4, 9])
-  t.deepEqual(map(['foo', 'bar', 'baz'], x => x.toUpperCase()), ['FOO', 'BAR', 'BAZ'])
-  t.deepEqual(map(['a', 'b', 'c'], x => x + x), ['aa', 'bb', 'cc'])
+test('map', (t) => {
+  t.deepEqual(
+    map([1, 2, 3], x => x * x),
+    [1, 4, 9],
+    'It works for numbers'
+  )
+  t.deepEqual(
+    map(['foo', 'bar', 'baz'], x => x.toUpperCase()), ['FOO', 'BAR', 'BAZ'],
+    'It works for strings'
+  )
+  t.deepEqual(map(['a', 'b', 'c'], x => x + x), ['aa', 'bb', 'cc'], 'It works for concatenation')
   t.end()
 })
 
 
-test('fibGenerator function', (t) => {
+test('fibGenerator', (t) => {
   const gen = fibGenerator()
   t.ok(typeof gen === 'function', 'generator is function')
   t.deepEqual(
@@ -25,7 +32,7 @@ test('fibGenerator function', (t) => {
   t.end()
 })
 
-test('filter function', (t) => {
+test('filter', (t) => {
   t.deepEqual(
     filter([1, 2, 3, 4, 5], x => x % 2 !== 0),
     [1, 3, 5],

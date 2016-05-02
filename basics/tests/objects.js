@@ -1,11 +1,12 @@
-import test from 'blue-tape'
+import test from 'tape-catch'
 
 import {
   collectByFirstLetter,
   wordsCount,
+  only,
 } from './../exercises/objects'
 
-test('collectByFirstLetter function', (t) => {
+test('collectByFirstLetter', (t) => {
   t.deepEqual(
     collectByFirstLetter('test', 'foo', 'bar', 'farm', 'trust', 'ham', 'harm'),
     {
@@ -13,8 +14,16 @@ test('collectByFirstLetter function', (t) => {
       f: ['farm', 'foo'],
       b: ['bar'],
       h: ['ham', 'harm'],
-    }
+    },
+    'It works'
   )
+  t.end()
+})
+
+test('only function', (t) => {
+  t.deepEqual(only({}), {}, 'It works for empty object')
+  t.deepEqual(only({foo: 42}, 'test'), {}, 'It ignores keys does not exist')
+  t.deepEqual(only({foo: 42, bar: 52}, 'foo'), {foo: 42}, 'It ignores keys does not exist')
   t.end()
 })
 
@@ -37,7 +46,7 @@ test('wordsCount function', (t) => {
       works: 1,
       fine: 1,
     },
-    'It works count uppercase')
+    'It counts uppercase')
 
   t.end()
 })

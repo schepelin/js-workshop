@@ -1,0 +1,51 @@
+const person = {
+  name: 'John Smith',
+  sayHello() {
+    return 'Hi! I am ' + this.name
+  }
+}
+
+console.log(person.name) // John Smith
+console.log(person['name']) // the same
+person.sayHello()
+console.log(person.surname) // undefined
+
+// extend person
+person['age'] = 42
+person.country = 'GB'
+person.travel = function (country) {
+  this.country = country
+}
+person.travel('China')
+
+// shortcuts and computed
+function getCar(producer, model, price) {
+  let category = 'budget'
+  if (price > 15000) category = 'golfclass'
+  if (price > 25000) category = 'premium'
+  return {
+    producer,
+    model,  // same as model: model
+    price,
+    [category]: true,
+
+    isBudget() {
+      return !!this.budget
+    }
+  }
+}
+
+const car = getCar('Reno', 'Logan', 5000)
+car.isBudget() // true
+
+// create via destruction
+
+const newCar = {
+  ...car,
+  producer: 'Audi',
+  model: 'A6',
+  shiny: true,
+  awesome: true,
+}
+
+console.log(newCar.price) // 5000

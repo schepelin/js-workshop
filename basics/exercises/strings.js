@@ -4,7 +4,6 @@ write a function's body that concat all passed strings to one and returns it
 */
 export function concat(...strings) {
   // your code here
-  return ''
 }
 
 
@@ -15,7 +14,7 @@ that contains element of initial strings with odd indexes
 '' -> ''
 */
 export function oddElements(string) {
-  return ''
+  // your code here
 }
 
 /*
@@ -25,5 +24,5 @@ write a function's body that returns words count in passed string
 'foo bar' -> 2
 */
 export function wordsCount(string) {
-  return 0
+  // your code here
 }
