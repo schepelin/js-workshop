@@ -68,6 +68,20 @@ export default class Presentation extends React.Component {
               Language basics
             </Heading>
           </Slide>
+          <Slide
+            transition={["slide"]}
+            bgColor="primary"
+            notes={"Told about my team and cross functional command. Make the acquaintance and find out expectations from members"}
+          >
+            <Heading size={1} bgColor="primary" textColor="textPrimary">How did we get here?</Heading>
+          </Slide>
+          <Slide transition={["slide"]} bgColor="primary">
+            <List textAlign="center">
+              <Text bold textColor="textSecondary" margin="0 0 15px">Want to be a fullstack developer</Text>
+              <Text bold textColor="textSecondary" margin="0 0 15px">Have a business reason</Text>
+              <Text bold textColor="textSecondary" margin="0 0 15px">Want to learn new language</Text>
+            </List>
+          </Slide>
 
           <Slide transition={["slide"]} bgColor="primary">
             <Image src={images.eich.replace("/", "")} margin="0px auto 40px" height="293px"/>
