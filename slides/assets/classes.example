@@ -1,0 +1,40 @@
+class Employee {
+  constructor(name, position) {
+    this.name = name
+    this.position = position
+  }
+
+  static sendNotification() {
+    console.log('Update your password')
+  }
+
+  generatePassword() {
+    return 'topsecret'
+  }
+}
+
+const emp = new Employee('John', 'accountant')
+emp instanceof Employee  // true
+
+Employee.sendNotification()
+emp.sendNotification()  // TypeError
+
+class Manager extends Employee {
+  constructor(name, subordinates = []) {
+    super(name, 'manager')
+    this.subordinates = subordinates
+  }
+
+  gatherMeeting() {
+    const names = this.subordinates.join(', ')
+    console.log(`Invite ${names} to meeting`)
+  }
+}
+
+const mngr = new Manager('Susan', ['John', 'Paul'])
+
+mngr.name // Susan
+mngr.subordinates // ['John', 'Paul']
+
+mngr instanceof Manager  // true
+mngr instanceof Employee  // true

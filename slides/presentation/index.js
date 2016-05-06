@@ -52,14 +52,15 @@ const code = {
   conditions: require("raw!../assets/conditions.example"),
   loops: require("raw!../assets/loops.example"),
   functions: require("raw!../assets/functions.example"),
-  objects: require("raw!../assets/objects.example")
+  objects: require("raw!../assets/objects.example"),
+  classes: require("raw!../assets/classes.example")
 }
 
 export default class Presentation extends React.Component {
   render() {
     return (
       <Spectacle theme={theme}>
-        <Deck transition={["slide"]} transitionDuration={500} progress="pacman">
+        <Deck transition={["slide"]} transitionDuration={500} progress="line">
           <Slide transition={[]} bgColor="primary">
             <Heading size={1} fit caps lineHeight={1} textColor="textPrimary">
               JavaScript
@@ -263,6 +264,32 @@ export default class Presentation extends React.Component {
               { loc: [2, 3], note: "It is possible to use outer scope variables here" },
               { loc: [7, 10], note: "How it works" },
               { loc: [11, 15], note: "Closure used here to keep a value of counter" }
+            ]}
+          />
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
+            code={code.classes}
+            ranges={[
+              { loc: [0, 0], title: "Classes" },
+              { loc: [0, 14], note: "Class declaration" },
+              { loc: [1, 5], note: "Contructor is required" },
+              { loc: [6, 9], note: "You can define static methods or props" },
+              { loc: [10, 13], note: "Usual class method" },
+
+              { loc: [15, 17], note: "Create an instance of class" },
+              { loc: [18, 20], note: "Call static method. Instance doen't have it" },
+
+              { loc: [21, 32], note: "Inherit new class from existing" },
+              { loc: [22, 26], note: "Override contructor" },
+              { loc: [23, 24], note: "Call parent method inside constructor. You can override any parent's method" },
+              { loc: [27, 31], note: "Define new method" },
+
+              { loc: [33, 34], note: "Create an instance of new class" },
+              { loc: [35, 37], note: "It has parents and own attributes" },
+
+              { loc: [38, 40], note: "It is instance of Manager and Employee" },
+
             ]}
           />
           <Slide>
