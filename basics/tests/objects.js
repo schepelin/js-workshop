@@ -4,6 +4,7 @@ import {
   collectByFirstLetter,
   wordsCount,
   only,
+  createUser,
 } from './../exercises/objects'
 
 test('collectByFirstLetter', (t) => {
@@ -48,5 +49,16 @@ test('wordsCount function', (t) => {
     },
     'It counts uppercase')
 
+  t.end()
+})
+
+test('createUser', (t) => {
+  const user = createUser('test', 'secret')
+  t.equal(user.login, 'test', 'Login  iscorrect')
+  t.equal(user.password, 'secret', 'Password is correct')
+  t.equal(user.isWeakPassword(), true, 'Only lowercase letters is weak password')
+  t.equal(user.isWeakPassword(), true, 'Only uppercase is weak password')
+  user.password = 'TeSt'
+  t.equal(user.isWeakPassword(), false, 'Upper and lower case is valid password')
   t.end()
 })

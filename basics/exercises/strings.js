@@ -22,6 +22,8 @@ write a function's body that returns words count in passed string
 'abcd' -> 1
 '' -> 0
 'foo bar' -> 2
+
+Note: String has .split(separator) method where seprator is another string
 */
 export function wordsCount(string) {
   // your code here

@@ -53,7 +53,8 @@ const code = {
   loops: require("raw!../assets/loops.example"),
   functions: require("raw!../assets/functions.example"),
   objects: require("raw!../assets/objects.example"),
-  classes: require("raw!../assets/classes.example")
+  classes: require("raw!../assets/classes.example"),
+  this: require("raw!../assets/this.example"),
 }
 
 export default class Presentation extends React.Component {
@@ -259,7 +260,8 @@ export default class Presentation extends React.Component {
             lang="js"
             code={code.closures}
             ranges={[
-              { loc: [0, 6], title: "Closure" },
+              { loc: [0, 0], title: "Closure" },
+              { loc: [0, 6], note: "When function declaration contantains another function declaration inside" },
               { loc: [1, 5], note: "Function body contains another function definition" },
               { loc: [2, 3], note: "It is possible to use outer scope variables here" },
               { loc: [7, 10], note: "How it works" },
@@ -297,6 +299,28 @@ export default class Presentation extends React.Component {
 
               { loc: [38, 40], note: "It is instance of Manager and Employee" },
 
+            ]}
+          />
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
+            notes={ 'Say about what is this. How bind works and so on' }
+            code={code.this}
+            ranges={[
+              { loc: [0, 0], title: "Zen of this" },
+              { loc: [0, 6], note: "We have a person object with some method" },
+              { loc: [7, 8], note: "We can call method directly from person" },
+              { loc: [9, 11], note: "But, what if we assign person's method to variable" },
+              { loc: [12, 13], title: "Why does it so?", note: "'this' is a tricky thing. It's a reference to current context" },
+              { loc: [14, 16], note: "We can bind arbitrary context to function" },
+              { loc: [17, 19], note: "Or event create custom context" },
+
+              { loc: [22, 31], note: "Same thing with closures" },
+              { loc: [32, 33], note: "In closure this refers to another object. By default it window object" },
+              { loc: [34, 43], note: "But if we replace function definition to fat-arrow" },
+              { loc: [44, 45], note: "It works fine. Fat arrow functions inherid context from parrent" },
+              { loc: [45, 46], note: "However, it is still posible to bind custom context" },
             ]}
           />
           <Slide>

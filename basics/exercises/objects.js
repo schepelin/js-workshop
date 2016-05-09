@@ -17,7 +17,7 @@ export function collectByFirstLetter(...words) {
 Write a function which receives oject and list of keys
 and returns object with only keys passed in arguments.
 unknow keys are ignored
-{name: 'John', age: 42}, name yields {name: 'John'}
+({name: 'John', age: 42}, 'name') yields {name: 'John'}
 */
 export function only(obj, ...keys) {
 
@@ -26,9 +26,10 @@ export function only(obj, ...keys) {
 /*
 Functon counts a words in givent text.
 returns an object with word as key and it's frequence as value
-Note: It should ignore punctuation marks and uppercese symbols!
 
-'awesome! Test it! It should works' yields
+Note: It should ignore punctuation marks and uppercase symbols
+
+'Awesome! Does it work? It should works' yields
 {
   awesome: 1,
   test: 1,
@@ -39,5 +40,24 @@ Note: It should ignore punctuation marks and uppercese symbols!
 '' yields {}
 */
 export function wordsCount(text) {
+
+}
+
+/*
+Write a function's body which create an object for user representation
+It should contains method for password validation:
+password is weak if it contains only lowercase letters or only uppercase
+
+
+Example:
+const user = createUser('root', 'topsecret')
+user.login === 'root' // true
+user.password === 'topsecret' // true
+user.isWeakPassword() === true
+user.password = 'topSecreT'
+user.isWeakPassword() === false
+*/
+
+export function createUser(login, password) {
 
 }

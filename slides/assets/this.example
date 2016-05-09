@@ -1,0 +1,46 @@
+const person = {
+  name: 'heisenberg',
+  callMyName() {
+    return this.name
+  }
+}
+
+person.callMyName() // heisenberg
+
+let fn = person.callMyName
+fn() // doesn't work
+
+// WTF!?
+
+fn = person.callMyName.bind(person)
+fn() // heisenberg
+
+fn = person.callMyName.bind({name: 'Neo'})
+fn() // Neo
+
+
+// difference between function and =>
+let incorrectPerson = {
+  name: 'test',
+  say() {
+    function fn() {
+      return this.name
+    }
+    return fn()
+  }
+}
+
+incorrectPerson.say()  // doesn't work
+
+let correctPerson = {
+  name: 'test',
+  say() {
+   const fn = () => {
+      return this.name
+    }
+    return fn()
+  }
+}
+
+correctPerson.say()  // test
+correctPerson.say.bind({name: 'foo'})() // foo

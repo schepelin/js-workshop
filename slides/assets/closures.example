@@ -9,7 +9,7 @@ const counter = getCounter(42)
 counter() // 43
 counter() // 44
 
-const another = getCounter(42)
+const another = getCounter()
 another() // 1
 another() // 2
 counter() // 45
