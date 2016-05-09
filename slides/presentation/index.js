@@ -44,7 +44,7 @@ const theme = createTheme({
 })
 
 const code = {
-  closure: require("raw!../assets/closure.example"),
+  closures: require("raw!../assets/closures.example"),
   firstLook: require("raw!../assets/first_look.example"),
   variables: require("raw!../assets/variables.example"),
   types: require("raw!../assets/types.example"),
@@ -257,13 +257,20 @@ export default class Presentation extends React.Component {
           <CodeSlide
             transition={["slide"]}
             lang="js"
-            code={code.closure}
+            code={code.closures}
             ranges={[
               { loc: [0, 6], title: "Closure" },
               { loc: [1, 5], note: "Function body contains another function definition" },
               { loc: [2, 3], note: "It is possible to use outer scope variables here" },
               { loc: [7, 10], note: "How it works" },
-              { loc: [11, 15], note: "Closure used here to keep a value of counter" }
+              { loc: [11, 15], note: "Closure used here to keep a value of counter" },
+
+              { loc: [16, 25], note: "Decorator with simple profiler" },
+              { loc: [18, 19], note: "Save start time" },
+              { loc: [19, 20], note: "Invoke original function" },
+              { loc: [20, 21], note: "Save finish time" },
+              { loc: [21, 23], note: "Log time and return result" },
+              { loc: [26, 29], note: "Usage exmaple" }
             ]}
           />
           <CodeSlide

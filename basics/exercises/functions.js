@@ -33,4 +33,22 @@ gen() -> 5
 ...
 */
 export function fibGenerator() {
+
+}
+
+
+/*
+Write a function that recieves a function and other
+arguments and return a function with bounded arguments
+Examples:
+const sum = (x, y) => x + y
+const addOne = partial(sum, 1)
+addOne(2) -> 3
+const sumTwoAndFour = partial(sum, 2, 4)
+sumTwoAndFour() // 6
+
+Note: function has a length property which shows how many arguments it receives
+*/
+export function partial(fn, ...args) {
+
 }

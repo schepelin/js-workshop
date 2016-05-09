@@ -1,0 +1,29 @@
+function getCounter(startValue = 0) {
+  return function() {
+    startValue = startValue + 1
+    return startValue
+  }
+}
+
+const counter = getCounter(42)
+counter() // 43
+counter() // 44
+
+const another = getCounter(42)
+another() // 1
+another() // 2
+counter() // 45
+
+function profileExecution(fn) {
+  return (...args) => {
+    const start = new Date()
+    const result = fn(...args)
+    const finish = new Date()
+    console.log(`It takes ${finish - start} milliseconds`)
+    return result
+  }
+}
+
+const loggedSum = profileExecution((x, y) => x + y)
+const result = loggedSum(2, 2)
+result === 4 // true
