@@ -12,6 +12,7 @@ write a function's body that returns string
 that contains element of initial strings with odd indexes
 'abcd' -> 'ac'
 '' -> ''
+'test' -> 'ts'
 */
 export function oddElements(string) {
   // your code here

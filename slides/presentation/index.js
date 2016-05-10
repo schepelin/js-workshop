@@ -7,15 +7,12 @@ import {
   Spectacle,
   Slide,
   Heading,
-  Link,
   Text,
   Image,
   Layout,
   Fill,
   CodePane,
-  Appear,
   List,
-  ListItem
 } from "spectacle"
 
 import CodeSlide from "spectacle-code-slide"
@@ -31,7 +28,7 @@ require("spectacle/lib/themes/default/index.css")
 
 
 const images = {
-  eich: require("../assets/Brendan_Eich_Mozilla_Foundation_official_photo.jpg")
+  eich: require("../assets/Brendan_Eich_Mozilla_Foundation_official_photo.jpg"),
 }
 
 preloader(images)
@@ -40,7 +37,7 @@ const theme = createTheme({
   primary: "#122b45",
   bgSecondary: "#000000",
   textSecondary: "#cccccc",
-  textPrimary: "#f6cc3d"
+  textPrimary: "#f6cc3d",
 })
 
 const code = {
@@ -152,7 +149,18 @@ export default class Presentation extends React.Component {
               { loc: [16, 20], note: "However, old style var is not" },
               { loc: [0, 0], title: "Which one is better let or const?" },
               { loc: [21, 27], note: "Object desctructing" },
-              { loc: [28, 30], note: "Array desctructing" }
+              { loc: [28, 30], note: "Array desctructing" },
+
+              { loc: [31, 33], note: "String has length property" },
+              { loc: [34, 36], note: "Access to char symbols by index" },
+              { loc: [37, 40], note: "Iterate over string" },
+              { loc: [37, 40], note: "Iterate over string" },
+              { loc: [41, 42], note: "Doesn't work. Strings are immutable" },
+              { loc: [42, 45], note: "Every method call returns new string" },
+              { loc: [47, 49], note: "It allows to chain methods calls" },
+              { loc: [50, 51], note: "Strings can be concatenated via +" },
+              { loc: [50, 51], note: "Strings can be concatenated via +" },
+              { loc: [52, 54], note: "We can get substring by calling slice method" },
             ]}
           />
 
@@ -177,7 +185,7 @@ export default class Presentation extends React.Component {
               { loc: [43, 44], note: "First unpack existing object" },
               { loc: [44, 46], note: "It is possible to override properties" },
               { loc: [46, 48], note: "Also you can create new properties" },
-              { loc: [50, 51], note: "And you still have access to old's obect attributes" }
+              { loc: [50, 51], note: "And you still have access to old's obect attributes" },
             ]}
           />
 
@@ -199,7 +207,7 @@ export default class Presentation extends React.Component {
               { loc: [29, 32], note: "There are two types of comparation with and without type check" },
               { loc: [33, 35], note: "Object are always not equal" },
               { loc: [38, 40], note: "Property does not exist" },
-              { loc: [41, 46], note: "There is special value for `empty` fields" }
+              { loc: [41, 46], note: "There is special value for `empty` fields" },
             ]}
           />
           <CodeSlide
@@ -212,7 +220,7 @@ export default class Presentation extends React.Component {
               { loc: [0, 2], note: "Does it throw an error?" },
               { loc: [3, 4], note: "How about it?" },
               { loc: [5, 7], note: "And even it works fine!" },
-              { loc: [8, 10], note: "One more special value" }
+              { loc: [8, 10], note: "One more special value" },
             ]}
           />
           <CodeSlide
@@ -225,7 +233,7 @@ export default class Presentation extends React.Component {
               { loc: [7, 11], note: "Value will be caseted to boolean automatically" },
               { loc: [12, 15], note: "&& is `and` operator" },
               { loc: [16, 19], note: "|| is `or` operator" },
-              { loc: [20, 23], note: "Explicit casting to boolean" }
+              { loc: [20, 23], note: "Explicit casting to boolean" },
             ]}
           />
           <CodeSlide
@@ -237,7 +245,7 @@ export default class Presentation extends React.Component {
               { loc: [0, 3], note: "Iterate over counter" },
               { loc: [4, 7], note: "Iterate over array" },
               { loc: [8, 13], note: "But what if I want to iterate over object?" },
-              { loc: [13, 17], note: "I can iterate over keys and get values" }
+              { loc: [13, 17], note: "I can iterate over keys and get values" },
             ]}
           />
           <CodeSlide
@@ -251,7 +259,7 @@ export default class Presentation extends React.Component {
               { loc: [8, 11], note: "Arrow function" },
               { loc: [12, 13], note: "Single sile arrow function" },
               { loc: [15, 16], note: "Arrow function example" },
-              { loc: [17, 25], note: "Function with variable number of arguments" }
+              { loc: [17, 25], note: "Function with variable number of arguments" },
             ]}
           />
 
@@ -272,7 +280,7 @@ export default class Presentation extends React.Component {
               { loc: [19, 20], note: "Invoke original function" },
               { loc: [20, 21], note: "Save finish time" },
               { loc: [21, 23], note: "Log time and return result" },
-              { loc: [26, 29], note: "Usage exmaple" }
+              { loc: [26, 29], note: "Usage exmaple" },
             ]}
           />
           <CodeSlide

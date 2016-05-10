@@ -28,3 +28,27 @@ const { name, age } = person
 
 const items = [1, 2, 3, 4]
 const [first, second, ...rest] = items
+
+const str = 'Some string!'
+str.length  // 12
+
+str[0] // S
+str[s.length - 1] // !
+
+for (let letter of str) {
+  console.log(letter)
+}
+
+str[0] = 'A'
+str.toUpperCase() // SOME STRING
+str.toLowerCase() // some string
+console.log(str) // 'Some string'
+
+str
+  .replace('!', '.')
+  .replace(' ', '+')
+
+'A' + 'B' === 'AB'
+
+const s = 'test'
+s.slice(2, s.length)  // st
