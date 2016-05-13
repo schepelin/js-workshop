@@ -10,7 +10,7 @@ and sorted words array as a value
 }
 */
 export function collectByFirstLetter(...words) {
-
+  return {}
 }
 
 /*
@@ -20,7 +20,7 @@ unknow keys are ignored
 ({name: 'John', age: 42}, 'name') yields {name: 'John'}
 */
 export function only(obj, ...keys) {
-
+  return {}
 }
 
 /*
@@ -40,7 +40,6 @@ Note: It should ignore punctuation marks and uppercase symbols
 '' yields {}
 */
 export function wordsCount(text) {
-
 }
 
 /*
@@ -59,5 +58,4 @@ user.isWeakPassword() === false
 */
 
 export function createUser(login, password) {
-
 }
