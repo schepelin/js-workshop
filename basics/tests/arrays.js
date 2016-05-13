@@ -18,7 +18,7 @@ test('matchEnds', (t) => {
 test('addFirstAndLast', (t) => {
   t.deepEqual(addFirstAndLast([1, 2, 3]), [2, 1, 2, 3, 4])
   t.deepEqual(addFirstAndLast([5, 47, 13]), [42, 5, 47, 13, 52])
-  t.deepEqual(addFirstAndLast([1, 1, 1]), [1, 1, 1, 1, 2])
+  t.deepEqual(addFirstAndLast([1, 1, 1]), [0, 1, 1, 1, 2])
   t.deepEqual(addFirstAndLast([-10, 5, 7]), [17, -10, 5, 7, -3])
   t.end()
 })
