@@ -1,9 +1,11 @@
 # Install requirements
 
+install nodejs
+
 Run in shell
 
 ```
-npm install --global babel-cli
+sudo npm install --global babel-cli
 npm install
 ```
 

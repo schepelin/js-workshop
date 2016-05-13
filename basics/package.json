@@ -14,5 +14,8 @@
     "babel-preset-stage-3": "^6.5.0",
     "tap-spec": "^4.1.1",
     "tape-catch": "^1.0.5"
+  },
+  "dependencies": {
+    "tape": "^4.5.1"
   }
 }
