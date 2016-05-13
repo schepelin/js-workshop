@@ -10,7 +10,6 @@ and sorted words array as a value
 }
 */
 export function collectByFirstLetter(...words) {
-  return {}
 }
 
 /*
@@ -20,7 +19,6 @@ unknow keys are ignored
 ({name: 'John', age: 42}, 'name') yields {name: 'John'}
 */
 export function only(obj, ...keys) {
-  return {}
 }
 
 /*

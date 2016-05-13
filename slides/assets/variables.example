@@ -33,7 +33,7 @@ const str = 'Some string!'
 str.length  // 12
 
 str[0] // S
-str[s.length - 1] // !
+str[str.length - 1] // !
 
 for (let letter of str) {
   console.log(letter)

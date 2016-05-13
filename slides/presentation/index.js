@@ -157,8 +157,7 @@ export default class Presentation extends React.Component {
               { loc: [37, 40], note: "Iterate over string" },
               { loc: [41, 42], note: "Doesn't work. Strings are immutable" },
               { loc: [42, 45], note: "Every method call returns new string" },
-              { loc: [47, 49], note: "It allows to chain methods calls" },
-              { loc: [50, 51], note: "Strings can be concatenated via +" },
+              { loc: [46, 49], note: "It allows to chain methods calls" },
               { loc: [50, 51], note: "Strings can be concatenated via +" },
               { loc: [52, 54], note: "We can get substring by calling slice method" },
             ]}
