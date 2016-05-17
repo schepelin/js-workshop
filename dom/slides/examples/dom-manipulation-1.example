@@ -1,0 +1,7 @@
+var div = document.createElement('div');
+div.className = "awesome";
+div.innerHTML = "<p>Такая внутри блока <strong>красота</strong>!</p>";
+
+var divClone = div.cloneNode(true);
+var divCloneEmpty = div.cloneNode(false);
+var callousDivClone = div.cloneNode();
