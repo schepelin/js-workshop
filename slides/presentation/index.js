@@ -267,7 +267,7 @@ export default class Presentation extends React.Component {
             lang="js"
             code={code.closures}
             ranges={[
-              { loc: [0, 0], title: "Closure" },
+              { loc: [0, 0], title: "Closures" },
               { loc: [0, 6], note: "When function declaration contantains another function declaration inside" },
               { loc: [1, 5], note: "Function body contains another function definition" },
               { loc: [2, 3], note: "It is possible to use outer scope variables here" },
@@ -332,14 +332,6 @@ export default class Presentation extends React.Component {
           />
           <Slide>
             <Heading size={2} bgColor="primary" textColor="textPrimary">Let's try</Heading>
-            <Text
-              margin="20px 0px 0px"
-              textColor="textSecondary"
-              textFont="Lucida Console"
-              textAlign="left"
-            >
-            sudo apt-get install git
-            </Text>
             <Text
               margin="20px 0px 0px"
               textColor="textSecondary"
