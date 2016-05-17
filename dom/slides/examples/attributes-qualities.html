@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Особенности атрибутов</title>
+</head>
+<body>
+  <div id="elem" about="Elephant" class="smiling"></div>
+
+  <script>
+    alert( elem.getAttribute('About') ); // (1) 'Elephant', атрибут получен
+
+    elem.setAttribute('Test', 123); // (2) атрибут Test установлен
+    alert( document.body.innerHTML ); // (3) в HTML видны все атрибуты!
+
+    var attrs = elem.attributes; // (4) можно получить коллекцию атрибутов
+    for (var i = 0; i < attrs.length; i++) {
+      alert( attrs[i].name + " = " + attrs[i].value );
+    }
+  </script>
+</body>
+</html>

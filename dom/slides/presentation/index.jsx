@@ -21,7 +21,7 @@ import {
   Slide,
   Spectacle,
   Text
-} from "spectacle";
+} from "spectacle"
 
 import CodeSlide from "spectacle-code-slide"
 
@@ -53,6 +53,11 @@ const codeSnippets = {
   domPropertyEventHandler: require("raw!../snippets/handler-as-dom-property.html"),
   addRemoveEventListeners: require("raw!../snippets/add-remove-event-listener.js"),
   eventObject: require("raw!../snippets/event-object.html"),
+  htmlAttributes: require("raw!../snippets/html-attributes.example"),
+  domProperties: require("raw!../snippets/dom-properties.example"),
+  domPropertiesAdding: require("raw!../snippets/dom-properties-adding.example"),
+  attributesDataHtml: require("raw!../snippets/attributes-data-html.example"),
+  attributesDataset: require("raw!../snippets/attributes-dataset.example"),
 }
 
 const code = {
@@ -64,8 +69,10 @@ const code = {
   walkByNodes3: require("raw!../examples/walk-by-nodes-3.example"),
   getElements1: require("raw!../examples/get-elements-1.example"),
   getElements2: require("raw!../examples/get-elements-2.example"),
+  getAttributes1: require("raw!../examples/get-attributes-1.example"),
   domManipulation1: require("raw!../examples/dom-manipulation-1.example"),
   domManipulation2: require("raw!../examples/dom-manipulation-2.example"),
+  classListMethods: require("raw!../examples/classlist-methods.example"),
 }
 
 preloader(images)
@@ -84,39 +91,39 @@ export default class Presentation extends React.Component {
       <Spectacle theme={theme}>
         <Deck transition={["zoom", "slide"]} transitionDuration={500} progress="bar">
 
-          <Slide transition={["slide"]} bgColor="black">
+          <Slide transition={["slide"]} bgColor="black" notes="Вопрос в зал: кто может сказать, что такое DOM? (Кроме расшифровки аббревиатуры ;) )">
             <Heading size={1} fit caps lineHeight={1} textColor="textPrimary">
               Основы DOM
             </Heading>
             <Heading size={1} fit caps textColor="white">
-              Что это, из чего построено и как управлять
+              Что это, из чего построено и как в нём жить
             </Heading>
           </Slide>
 
-          <Slide transition={["slide"]} bgColor="black">
+          <Slide transition={["slide"]} bgColor="black" notes="Для начала разберёмся, что есть DOM, а что им не является. Где искать его вообще.">
             <Heading size={2} caps fit textColor="textPrimary" textFont="primary">
               Что DOM, а что не DOM
             </Heading>
           </Slide>
 
-          <Slide transition={["zoom", "fade"]} bgColor="black">
+          <Slide transition={["zoom", "fade"]} bgColor="black" notes="HTML-код, написанный в редакторе это DOM?">
             <Heading size={4} caps textColor="textPrimary" textFont="primary">
               DOM?
             </Heading>
             <Image src={images.htmlCode} margin="20px auto 0" height="500px" />
           </Slide>
 
-          <Slide transition={["zoom", "fade"]} bgColor="black">
+          <Slide transition={["zoom", "fade"]} bgColor="black" notes="<p>А код в dev-tools браузера это DOM? (упомянуть о том, что написанный код здесь может выглядеть иначе, т.к. его исправит и дополнит за нас браузер.)</p><p>Дело в том, что браузеры знают стандарт (какие-то больше, какие-то меньше), и, независимо от того, что написали мы, сделают всё правильно, ну или как считают нужным. :)</p>">
             <Heading size={4} caps textColor="textPrimary" textFont="primary">
               А это DOM?
             </Heading>
             <Image src={images.devTools} margin="10px auto 0" height="500px" />
             <Appear>
-              <Text textColor="white">это его визуальное представление</Text>
+              <Text italic textColor="white">это его визуальное представление</Text>
             </Appear>
           </Slide>
 
-          <Slide transition={["slide"]} bgColor="white" notes="Чтобы лучше понять, что такое DOM, посмотрим где он живёт">
+          <Slide transition={["slide"]} bgColor="white" notes="<p>Чтобы лучше понять, что такое DOM, посмотрим где он живёт.</p><p>Браузеры нам помогают - они смешивают пространства имён DOM, BOM и JS - благодаря чему мы и можем со всем этим работать.</p>">
             <Image src={images.logo} margin="0px auto 40px" height="150px" />
             <Heading size={3} caps textColor="textSecondary" textFont="primary">
               DOM, BOM и JS
@@ -124,19 +131,19 @@ export default class Presentation extends React.Component {
             <Image src={images.windowTree} margin="30px auto 0" height="190px" />
           </Slide>
 
-          <Slide transition={["slide"]} bgColor="black" notes="Увидеть DOM в браузере можно, например, с помощью команды console.dir">
+          <Slide transition={["slide"]} bgColor="black" notes="Ближе всего рассмотреть DOM в браузере можно, например, с помощью команды console.dir">
             <Heading size={4} textColor="textPrimary" textFont="primary">
               console.dir(document)
             </Heading>
             <Image src={images.documentObject} margin="10px auto 0" height="550px" />
           </Slide>
 
-          <Slide bgColor="white">
+          <Slide bgColor="black">
             <BlockQuote>
-              <Quote textColor="textSecondary" textSize="3rem">Объектная Модель Документа (DOM) &mdash; это программный интерфейс (API) для HTML и XML документов.</Quote>
+              <Quote textSize="3rem">Объектная Модель Документа (DOM) &mdash; это программный интерфейс (API) для HTML и XML документов.</Quote>
               <Cite textColor="textSecondary">MDN</Cite>
             </BlockQuote>
-            <List textColor="black">
+            <List textColor="white">
               <Appear>
                 <ListItem>Структурированнное представление документа</ListItem>
               </Appear>
@@ -149,11 +156,12 @@ export default class Presentation extends React.Component {
             </List>
           </Slide>
 
-          <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>всё, что содержится в DOM - узлы, но не всё элементы</li></ul>">
-            <Heading size={4} margin="0 auto 40px">Дерево DOM &mdash; узлы и элементы</Heading>
+          <Slide transition={["zoom", "fade"]} bgColor="black" notes="<ul><li>всё, что содержится в DOM - узлы, но не всё элементы</li></ul>">
+            <Heading textColor="textPrimary" size={4} margin="0 auto 40px">Дерево DOM: узлы и элементы</Heading>
             <Layout>
               <Fill>
                 <CodePane
+                  textSize="1.2rem"
                   lang="html"
                   source={code.htmlCode}
                 />
@@ -161,6 +169,7 @@ export default class Presentation extends React.Component {
               &nbsp;
               <Fill>
                 <CodePane
+                  textSize="1.2rem"
                   lang="html"
                   source={code.domTree}
                 />
@@ -262,7 +271,134 @@ export default class Presentation extends React.Component {
             <Heading caps size={3} textColor="textPrimary" textFont="primary">
               Атрибуты и DOM-свойства
             </Heading>
+            <Appear>
+              <Text italic textColor="white">Если коротко и понятно, то...</Text>
+            </Appear>
+            <Appear>
+              <Text textColor="white" margin="45px 0 20px">Атрибуты, это те, которые в html:</Text>
+            </Appear>
+            <Appear>
+              <CodePane textSize="1.2rem" lang="html" source={codeSnippets.htmlAttributes} />
+            </Appear>
+            <Appear>
+              <Text textColor="white" margin="45px 0 20px">А свойства &mdash; в объекте DOM:</Text>
+            </Appear>
+            <Appear>
+              <CodePane textSize="1.2rem" lang="js" source={codeSnippets.domProperties} />
+            </Appear>
           </Slide>
+
+          <Slide transition={["slide"]} bgColor="black" notes="">
+            <Heading caps size={3} textColor="textPrimary" textFont="primary">
+              Синхронизация атрибутов и свойств
+            </Heading>
+            <Text textColor="white" textAlign="left" margin="30px 0 0">Стандартные свойства и атрибуты синхронизируются: установка атрибута автоматически ставит свойство DOM. Некоторые свойства синхронизируются в обе стороны.</Text>
+            <Text textColor="white" textAlign="left" margin="30px 0 0">Некоторые свойства не полностью соответствуют атрибутам:</Text>
+            <List textColor="white">
+              <ListItem>Свойства <Code textColor="white">checked</Code> и <Code textColor="white">selected</Code> всегда <Code textColor="white">= true / false</Code>, а в атрибуты можно написать любую строку.</ListItem>
+              <ListItem>Свойство <Code textColor="white">href</Code> - всегда будет полным URL, атрибут может быть относительным, например, путём.</ListItem>
+            </List>
+          </Slide>
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
+            notes=""
+            code={code.getAttributes1}
+            ranges={[
+              { loc: [0, 0], title: "Доступ к атрибутам" },
+              { loc: [0, 1], note: "проверяет наличие атрибута" },
+              { loc: [1, 2], note: "получает значение атрибута" },
+              { loc: [2, 3], note: "устанавливает атрибут" },
+              { loc: [3, 4], note: "удаляет атрибут" },
+              { loc: [4, 5], note: "получить все атрибуты элемента, возвращает псевдо-массив" },
+            ]}
+          />
+
+          <Slide transition={["slide"]} bgColor="black" notes="">
+            <Heading caps size={3} textColor="textPrimary" textFont="primary">
+              Особенности атрибутов
+            </Heading>
+            <List textColor="white">
+              <ListItem>Всегда являются строками</ListItem>
+              <ListItem>Их имя нечувствительно к регистру (ведь это HTML)</ListItem>
+              <ListItem>Видны в innerHTML (за исключением старых IE)</ListItem>
+            </List>
+            <Text textColor="white" margin="60px 0 0">Потыкать атрибуты в файле <br/><Code textColor="white">[examples/attributes-qualities.html]</Code></Text>
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="black" notes="Что это, синхронизация свойств и атрибутов">
+            <Heading caps size={3} textColor="textPrimary" textFont="primary">
+              Узлы DOM &mdash; объекты
+            </Heading>
+            <Appear fid="1">
+              <Text textColor="white" margin="45px 0 20px">Поэтому к нему можно свободно добавлять любые свойства</Text>
+            </Appear>
+            <Appear fid="1">
+              <CodePane textSize="1.2rem" lang="js" source={codeSnippets.domPropertiesAdding} />
+            </Appear>
+            <Appear fid="2">
+              <Text textColor="white" margin="45px 0 20px">Которые могут быть и функциями</Text>
+            </Appear>
+            <Appear fid="2">
+              <CodePane textSize="1.2rem" lang="js" source={codeSnippets.domPropertiesFunction} />
+            </Appear>
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="black" notes="">
+            <Heading caps size={3} textColor="textPrimary" textFont="primary">
+              Особенности свойств
+            </Heading>
+            <List textColor="white">
+              <ListItem>Значение может быть любым: строка, функция, число</ListItem>
+              <ListItem>Регистр - имеет значение</ListItem>
+              <ListItem>Не видны в innerHTML</ListItem>
+            </List>
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="black" notes="data-атрибуты действительно крутая вещь, которой активно пользуются при разработке приложений. Можно ими, кстати, и в css пользоваться. Но это уже другая история.">
+            <Heading caps size={3} textColor="textPrimary" textFont="primary">
+              Нестандартные атрибуты
+            </Heading>
+            <Text textColor="white" margin="20px 0 30px">свойство dataset, data-атрибуты</Text>
+            <List textColor="white">
+              <ListItem>Нестандартные атрибуты &mdash; не попадают в свойства</ListItem>
+              <ListItem>Атрибуты с приставкой <Code textColor="white">data-</Code> стандартизированы: попадают в свойство <Code textColor="white">dataset</Code></ListItem>
+            </List>
+            <Appear><Text textColor="white" margin="30px 0 15px">Атрибуты из:</Text></Appear>
+            <Appear><CodePane textSize="1.5rem" lang="html" source={codeSnippets.attributesDataHtml} /></Appear>
+            <Appear><Text textColor="white" margin="30px 0 15px">попадут в объект</Text></Appear>
+            <Appear><CodePane textSize="1.5rem" lang="html" source={codeSnippets.attributesDataset} /></Appear>
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="black" notes="class - особенный атрибут, т.к. для него есть сразу 2 свойства">
+            <Heading  size={3} textColor="textPrimary" textFont="primary">
+              Самый классный атрибут
+            </Heading>
+            <Text textColor="white" margin="20px 0 30px">class, className, classList</Text>
+            <List textColor="white">
+              <ListItem>className &mdash; классы в виде строки</ListItem>
+              <ListItem>classList &mdash; классы в виде объекта</ListItem>
+            </List>
+            <Text textColor="white" margin="60px 0 30px">
+              Свойство classList поддерживается в IE начиная с IE10, но его можно эмулировать в IE8+, подключив мини-библиотеку <Link href="https://github.com/eligrey/classList.js">classList.js.</Link>
+              </Text>
+          </Slide>
+
+          <CodeSlide
+            transition={["slide"]}
+            notes=""
+            lang="js"
+            code={code.classListMethods}
+            ranges={[
+              { loc: [0, 0], title: "Методы classList" },
+              { loc: [0, 1], note: "возвращает true/false, в зависимости от того, есть ли у элемента класс class" },
+              { loc: [1, 2], note: "добавляет класс" },
+              { loc: [2, 3], note: "удаляет класс" },
+              { loc: [3, 4], note: "если класса class нет, добавляет его, если есть – удаляет" },
+              { loc: [5, 8], note: "можно перебрать классы через for, так как classList – это псевдо-массив" },
+            ]}
+          />
 
           <Slide transition={["slide"]} bgColor="black" notes="">
             <Heading caps size={3} textColor="textPrimary" textFont="primary">
@@ -317,8 +453,6 @@ export default class Presentation extends React.Component {
             <Link href="https://learn.javascript.ru/document-write">learn.javascript.ru/document-write</Link>
 
             <Text textColor="white" textSize="1.5rem">Пример использования в глобальной карте: для стилизации разных элементов под цвет клана</Text>
-
-            <Text textColor="white" textSize="1.5rem">Добавить картинку про древность или динозавра</Text>
           </Slide>
 
           <Slide transition={["slide", "spin"]} bgColor="black" bgImage={images.eventsCover.replace("/", "")} notes="">
@@ -400,8 +534,9 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["slide"]} bgColor="black" notes="">
             <Heading caps size={3} textColor="textPrimary" textFont="primary">
-              Учебный проект &mdash; ToDo List
+              Учебный проект
             </Heading>
+            <Text textColor="white">ToDo List</Text>
           </Slide>
         </Deck>
       </Spectacle>

@@ -1,0 +1,6 @@
+document.body.trainingData = {
+  title: 'DOM Basics',
+  trainer: 'Eugene Romanovsky'
+};
+
+alert( document.body.trainingData.title ); // DOM Basics
