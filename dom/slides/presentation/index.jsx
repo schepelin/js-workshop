@@ -58,6 +58,8 @@ const codeSnippets = {
   domPropertiesAdding: require("raw!../snippets/dom-properties-adding.example"),
   attributesDataHtml: require("raw!../snippets/attributes-data-html.example"),
   attributesDataset: require("raw!../snippets/attributes-dataset.example"),
+  insertAdjacentSyntax: require("raw!../snippets/insert-adjacent-syntax.example"),
+  insertAdjacentPositions: require("raw!../snippets/insert-adjacent-positions.example"),
 }
 
 const code = {
@@ -73,6 +75,8 @@ const code = {
   domManipulation1: require("raw!../examples/dom-manipulation-1.example"),
   domManipulation2: require("raw!../examples/dom-manipulation-2.example"),
   classListMethods: require("raw!../examples/classlist-methods.example"),
+  immediateOrPostponed: require("raw!../examples/multiinsert.example"),
+  insertAdjacentMethods: require("raw!../examples/insert-adjacent-methods.example"),
 }
 
 preloader(images)
@@ -438,22 +442,44 @@ export default class Presentation extends React.Component {
           />
 
           <Slide transition={["slide", "spin"]} bgColor="black" notes="">
-            <Heading caps size={3} textColor="textPrimary" textFont="primary">
-              Мультивставка
+            <Heading caps size={2} textColor="textPrimary" textFont="primary">
+              Оптимизация вставки элементов
             </Heading>
-            <Text textColor="white">insertAdjacentHTML и DocumentFragment</Text>
-            <Link href="https://learn.javascript.ru/multi-insert">learn.javascript.ru/multi-insert</Link>
           </Slide>
+
+          <CodeSlide
+            transition={["slide", "spin"]}
+            notes="Второй способ быстрее и даже не из-за перерисовки в браузере, а из-за внутренних оптимизаций, которые происходят если вставлять всё в памяти."
+            lang="js"
+            code={code.immediateOrPostponed}
+            ranges={[
+              { loc: [0, 0], title: "Отложенная вставка" },
+              { loc: [0, 3], note: "Добавляет элемент в конец родителя, последним потомком" },
+              { loc: [4, 7], note: "Вставляет перед элементом, указанным вторым аргументом" },
+            ]}
+          />
 
           <Slide transition={["slide", "spin"]} bgColor="black" notes="">
-            <Heading size={4} textColor="textPrimary" textFont="primary">
-              document.write
+            <Heading size={2} textColor="textPrimary" textFont="primary">
+              Element.insertAdjacentHTML()
             </Heading>
-            <Text textColor="white"></Text>
-            <Link href="https://learn.javascript.ru/document-write">learn.javascript.ru/document-write</Link>
-
-            <Text textColor="white" textSize="1.5rem">Пример использования в глобальной карте: для стилизации разных элементов под цвет клана</Text>
+            <Text textColor="white" margin="30px 0 15px">Синтаксис:</Text>
+            <CodePane textSize="1.5rem" lang="js" source={codeSnippets.insertAdjacentSyntax} />
+            <Text textColor="white" margin="30px 0 15px">Позиция относительно указанного элемента:</Text>
+            <CodePane textSize="1.5rem" lang="html" source={codeSnippets.insertAdjacentPositions} />
           </Slide>
+
+          <CodeSlide
+            transition={["slide", "spin"]}
+            notes=""
+            lang="js"
+            code={code.insertAdjacentMethods}
+            ranges={[
+              { loc: [0, 1], note: "вставляет строку HTML в произвольное место" },
+              { loc: [1, 2], note: "вставляет не строку HTML, а элемент newElem" },
+              { loc: [2, 3], note: "создаёт текстовый узел из строки text и вставляет его в указанное место относительно elem" },
+            ]}
+          />
 
           <Slide transition={["slide", "spin"]} bgColor="black" bgImage={images.eventsCover.replace("/", "")} notes="">
           </Slide>
@@ -487,7 +513,7 @@ export default class Presentation extends React.Component {
             </List>
 
             <Text textSize="1.5rem">
-              <Link href="http://www.w3schools.com/jsref/dom_obj_event.asp">www.w3schools.com/jsref/dom_obj_event.asp</Link>
+              <Link href="http://www.w3schools.com/jsref/dom_obj_event.asp">HTML DOM Events</Link>
             </Text>
           </Slide>
 
@@ -497,7 +523,7 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
-          <Slide transition={["slide"]} bgColor="black" notes="">
+          <Slide transition={["slide"]} bgColor="black" notes="Главный недостаток этих способов назначения событий - отсутствие возможности назначить несколько обработчиков">
             <Heading caps size={6} textColor="textPrimary" textFont="primary" margin="30px 0 20px">
               Использование атрибута HTML
             </Heading>
@@ -520,16 +546,6 @@ export default class Presentation extends React.Component {
               Event Object
             </Heading>
             <CodePane textSize="1.5rem" lang="html" source={codeSnippets.eventObject} />
-          </Slide>
-
-          <Slide transition={["slide"]} bgColor="black" notes="">
-            <Heading caps size={3} textColor="textPrimary" textFont="primary">
-              Обзор популярных библиотек для работы с DOM
-            </Heading>
-            <Text textColor="white">jQuery, $dom, Zepto</Text>
-            <Text textSize="2rem">
-              <Link href="http://youmightnotneedjquery.com/">youmightnotneedjquery.com</Link>
-            </Text>
           </Slide>
 
           <Slide transition={["slide"]} bgColor="black" notes="">
