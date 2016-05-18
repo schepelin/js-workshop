@@ -45,7 +45,6 @@ const images = {
   devTools: require("../assets/dev-tools.png"),
   documentObject: require("../assets/document-object.png"),
   windowTree: require("../assets/window-tree.png"),
-  markdown: require("../assets/markdown.png")
 }
 
 const codeSnippets = {
@@ -56,6 +55,7 @@ const codeSnippets = {
   htmlAttributes: require("raw!../snippets/html-attributes.example"),
   domProperties: require("raw!../snippets/dom-properties.example"),
   domPropertiesAdding: require("raw!../snippets/dom-properties-adding.example"),
+  domPropertiesFunction: require("raw!../snippets/dom-properties-function.example"),
   attributesDataHtml: require("raw!../snippets/attributes-data-html.example"),
   attributesDataset: require("raw!../snippets/attributes-dataset.example"),
   insertAdjacentSyntax: require("raw!../snippets/insert-adjacent-syntax.example"),
@@ -323,6 +323,7 @@ export default class Presentation extends React.Component {
             <Heading caps size={3} textColor="textPrimary" textFont="primary">
               Особенности атрибутов
             </Heading>
+
             <List textColor="white">
               <ListItem>Всегда являются строками</ListItem>
               <ListItem>Их имя нечувствительно к регистру (ведь это HTML)</ListItem>
@@ -335,16 +336,16 @@ export default class Presentation extends React.Component {
             <Heading caps size={3} textColor="textPrimary" textFont="primary">
               Узлы DOM &mdash; объекты
             </Heading>
-            <Appear fid="1">
+            <Appear>
               <Text textColor="white" margin="45px 0 20px">Поэтому к нему можно свободно добавлять любые свойства</Text>
             </Appear>
-            <Appear fid="1">
+            <Appear>
               <CodePane textSize="1.2rem" lang="js" source={codeSnippets.domPropertiesAdding} />
             </Appear>
-            <Appear fid="2">
+            <Appear>
               <Text textColor="white" margin="45px 0 20px">Которые могут быть и функциями</Text>
             </Appear>
-            <Appear fid="2">
+            <Appear>
               <CodePane textSize="1.2rem" lang="js" source={codeSnippets.domPropertiesFunction} />
             </Appear>
           </Slide>
