@@ -1,0 +1,3 @@
+document.getElementById
+elem.getElementsByTagName
+elem.getElementsByClassName
