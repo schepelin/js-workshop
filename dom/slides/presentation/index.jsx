@@ -48,35 +48,40 @@ const images = {
 }
 
 const codeSnippets = {
-  htmlAttributeEventHandler: require("raw!../snippets/handler-as-html-attribute.html"),
-  domPropertyEventHandler: require("raw!../snippets/handler-as-dom-property.html"),
-  addRemoveEventListeners: require("raw!../snippets/add-remove-event-listener.js"),
-  eventObject: require("raw!../snippets/event-object.html"),
-  htmlAttributes: require("raw!../snippets/html-attributes.example"),
-  domProperties: require("raw!../snippets/dom-properties.example"),
-  domPropertiesAdding: require("raw!../snippets/dom-properties-adding.example"),
-  domPropertiesFunction: require("raw!../snippets/dom-properties-function.example"),
-  attributesDataHtml: require("raw!../snippets/attributes-data-html.example"),
-  attributesDataset: require("raw!../snippets/attributes-dataset.example"),
-  insertAdjacentSyntax: require("raw!../snippets/insert-adjacent-syntax.example"),
-  insertAdjacentPositions: require("raw!../snippets/insert-adjacent-positions.example"),
+  htmlAttributeEventHandler: require("raw!../assets/snippets/handler-as-html-attribute.example"),
+  domPropertyEventHandler: require("raw!../assets/snippets/handler-as-dom-property.example"),
+  addRemoveEventListeners: require("raw!../assets/snippets/add-remove-event-listener.example"),
+  eventObject: require("raw!../assets/snippets/event-object.example"),
+  htmlAttributes: require("raw!../assets/snippets/html-attributes.example"),
+  domProperties: require("raw!../assets/snippets/dom-properties.example"),
+  domPropertiesAdding: require("raw!../assets/snippets/dom-properties-adding.example"),
+  domPropertiesFunction: require("raw!../assets/snippets/dom-properties-function.example"),
+  attributesDataHtml: require("raw!../assets/snippets/attributes-data-html.example"),
+  attributesDataset: require("raw!../assets/snippets/attributes-dataset.example"),
+  insertAdjacentSyntax: require("raw!../assets/snippets/insert-adjacent-syntax.example"),
+  insertAdjacentPositions: require("raw!../assets/snippets/insert-adjacent-positions.example"),
 }
 
 const code = {
-  htmlCode: require("raw!../examples/html.example"),
-  domTree: require("raw!../examples/dom-tree.example"),
-  nodeTypes: require("raw!../examples/node-types.example"),
-  walkByNodes1: require("raw!../examples/walk-by-nodes-1.example"),
-  walkByNodes2: require("raw!../examples/walk-by-nodes-2.example"),
-  walkByNodes3: require("raw!../examples/walk-by-nodes-3.example"),
-  getElements1: require("raw!../examples/get-elements-1.example"),
-  getElements2: require("raw!../examples/get-elements-2.example"),
-  getAttributes1: require("raw!../examples/get-attributes-1.example"),
-  domManipulation1: require("raw!../examples/dom-manipulation-1.example"),
-  domManipulation2: require("raw!../examples/dom-manipulation-2.example"),
-  classListMethods: require("raw!../examples/classlist-methods.example"),
-  immediateOrPostponed: require("raw!../examples/multiinsert.example"),
-  insertAdjacentMethods: require("raw!../examples/insert-adjacent-methods.example"),
+  htmlCode: require("raw!../assets/examples/html.example"),
+  domTree: require("raw!../assets/examples/dom-tree.example"),
+  nodeTypes: require("raw!../assets/examples/node-types.example"),
+  walkByNodes1: require("raw!../assets/examples/walk-by-nodes-1.example"),
+  walkByNodes2: require("raw!../assets/examples/walk-by-nodes-2.example"),
+  walkByNodes3: require("raw!../assets/examples/walk-by-nodes-3.example"),
+  getElements1: require("raw!../assets/examples/get-elements-1.example"),
+  getElements2: require("raw!../assets/examples/get-elements-2.example"),
+  getAttributes1: require("raw!../assets/examples/get-attributes-1.example"),
+  domManipulation1: require("raw!../assets/examples/dom-manipulation-1.example"),
+  domManipulation2: require("raw!../assets/examples/dom-manipulation-2.example"),
+  classListMethods: require("raw!../assets/examples/classlist-methods.example"),
+  immediateOrPostponed: require("raw!../assets/examples/multiinsert.example"),
+  insertAdjacentMethods: require("raw!../assets/examples/insert-adjacent-methods.example"),
+  cssSelectors1: require("raw!../assets/examples/css-selectors-1.example"),
+  cssSelectors2: require("raw!../assets/examples/css-selectors-2.example"),
+  cssSelectors3: require("raw!../assets/examples/css-selectors-3.example"),
+  cssSelectors4: require("raw!../assets/examples/css-selectors-4.example"),
+  cssSelectors5: require("raw!../assets/examples/css-selectors-5.example"),
 }
 
 preloader(images)
@@ -223,10 +228,6 @@ export default class Presentation extends React.Component {
             ]}
           />
 
-          <Slide bgColor="black">
-            <Heading textColor="textPrimary">Схема этих методов в дереве (?)</Heading>
-          </Slide>
-
           <CodeSlide
             transition={["slide"]}
             lang="js"
@@ -265,11 +266,95 @@ export default class Presentation extends React.Component {
             ]}
           />
 
-          <Slide transition={["slide"]} bgColor="black" notes="Рассказать о CSS селекторах - для бэкендеров">
+          <Slide transition={["slide"]} bgColor="black" notes="Поговорим об основных видах CSS-селекторов и поправктикуемся в их использовании">
             <Heading caps size={3} textColor="textPrimary" textFont="primary">
               Подробнее о CSS селекторах
             </Heading>
           </Slide>
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
+            notes=""
+            code={code.cssSelectors1}
+            ranges={[
+              { loc: [0, 0], title: "Основные виды селекторов" },
+              { loc: [0, 6], note: "Основных видов селекторов немного" },
+              { loc: [0, 1], note: "любые элементы" },
+              { loc: [1, 2], note: "элемент с соответствующим тегом" },
+              { loc: [2, 3], note: "элемент с данным id" },
+              { loc: [3, 4], note: "с данным классом" },
+              { loc: [4, 5], note: "с указанным атрибутом и его значением (использование этого селектора подробнее рассмотрим далее)" },
+              { loc: [5, 6], note: "и элемент с указанным псевдоклассом (чуть подробнее о них тоже дальше)" },
+              { loc: [7, 9], note: "Ещё селекторы можно комбинировать" },
+              { loc: [7, 8], note: "элемент с двумя классами одновременно" },
+              { loc: [8, 9], note: "или элемент с этими всеми селекторами..." },
+            ]}
+          />
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
+            notes=""
+            code={code.cssSelectors2}
+            ranges={[
+              { loc: [0, 0], title: "Отношения элементов" },
+              { loc: [0, 2], note: "Первые самые распространённые" },
+              { loc: [0, 1], note: "вложенность (любой уровень, где-то в недрах)" },
+              { loc: [1, 2], note: "непосредственный потомок (первый уровень пложенности)" },
+              { loc: [3, 5], note: "Более редкие" },
+              { loc: [3, 4], note: "правые соседи (все на том же уровне, после него)" },
+              { loc: [4, 5], note: "первый правый сосед (на том же уровне, сразу за ним)" },
+            ]}
+          />
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
+            notes=""
+            code={code.cssSelectors3}
+            ranges={[
+              { loc: [0, 0], title: "Поиск по соседям" },
+              { loc: [0, 1], note: "первый потомок" },
+              { loc: [1, 2], note: "последний потомок" },
+              { loc: [2, 3], note: "единственный потомок своего родителя, соседних элементов нет" },
+              { loc: [3, 4], note: "потомок под номером - а (нумерация начинается с 1)" },
+              { loc: [5, 8], note: "В последнем случае можно передавать не только число, но и формулу или ключевое слово (even, odd)" },
+              { loc: [9, 14], note: "И группа селелекторов которые ищут среди соседей с таким же тегом, как у элемента к которому селектор применён (dt:nth-of-type(even))" },
+            ]}
+          />
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
+            notes=""
+            code={code.cssSelectors4}
+            ranges={[
+              { loc: [0, 0], title: "Селекторы атрибутов" },
+              { loc: [0, 1], note: "атрибут установлен" },
+              { loc: [1, 2], note: "атрибут равен val" },
+              { loc: [3, 4], note: "атрибут начинается с val, например 'value'" },
+              { loc: [4, 5], note: "атрибут равен val или начинается с val-, например равен 'val-1'" },
+              { loc: [6, 7], note: "атрибут содержит подстроку val, например равен 'myvalue'" },
+              { loc: [7, 8], note: "атрибут содержит val как одно из значений через пробел" },
+              { loc: [9, 10], note: "атрибут заканчивается на val, например равен 'myval'" },
+            ]}
+          />
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
+            notes=""
+            code={code.cssSelectors5}
+            ranges={[
+              { loc: [0, 0], title: "Псевдоклассы" },
+              { loc: [0, 1], note: "все, кроме подходящих под селектор" },
+              { loc: [1, 2], note: "в фокусе" },
+              { loc: [2, 3], note: "под мышью" },
+              { loc: [3, 4], note: "без детей (даже без текстовых)" },
+              { loc: [4, 5], note: "состояния Input" },
+            ]}
+          />
 
           <Slide transition={["slide"]} bgColor="black" notes="Что это, синхронизация свойств и атрибутов">
             <Heading caps size={3} textColor="textPrimary" textFont="primary">
