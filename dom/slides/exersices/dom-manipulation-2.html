@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+        var parent = document.createElement('ol');
+        var elem = document.createElement('li');
+        elem.innerHTML = 'Ромашка';
+        var newElem = elem;
+        newElem.innerHTML = 'А я четвёртую нашёл!';
+
+        parent.insertBefore(elem, nextSibling); // Что если nextSibling - коллекция?
+    </script>
+</head>
+<body>
+
+</body>
+</html>

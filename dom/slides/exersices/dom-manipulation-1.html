@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+        var div = document.createElement('div'); // Создаёт элемент с указанным тегом
+        div.className = "awesome"; // Присвоим сообщению класс
+        div.innerHTML = "<p>Такая внутри блока <strong>красота</strong>!</p>"; // И добавим внутрь немного форматированного текста
+
+        var divClone = div.cloneNode(true); // Получим копию блока со всей красотой
+        var divCloneEmpty = div.cloneNode(false);
+        var callousDivClone = div.cloneNode(); // Получим пустой, бездушный клон
+        console.log(divClone)
+        console.log(divClone.innerHTML)
+        console.log(divCloneEmpty)
+        console.log(callousDivClone)
+        document.body.appendChild(divClone)
+        document.body.appendChild(divClone.innerHTML)
+        document.body.appendChild(divCloneEmpty)
+        document.body.appendChild(callousDivClone)
+    </script>
+</head>
+<body>
+
+</body>
+</html>
