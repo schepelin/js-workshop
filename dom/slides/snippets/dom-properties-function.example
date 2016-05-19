@@ -1,0 +1,5 @@
+document.body.makeProject = function() {
+  alert("Let`s Practice!")
+};
+
+document.body.makeProject();

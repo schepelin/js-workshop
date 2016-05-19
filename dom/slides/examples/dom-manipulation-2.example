@@ -1,0 +1,6 @@
+parent.appendChild(elem);
+parent.insertBefore(elem, nextSibling);
+parent.insertBefore(elem, null);
+parent.removeChild(elem);
+parent.replaceChild(newElem, elem);
+elem.remove();
