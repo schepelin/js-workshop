@@ -23,8 +23,9 @@ test('collectByFirstLetter', (t) => {
 
 test('only function', (t) => {
   t.deepEqual(only({}), {}, 'It works for empty object')
+  t.deepEqual(only({foo: null}, 'foo'), {foo: null}, 'It works for properties with null')
   t.deepEqual(only({foo: 42}, 'test'), {}, 'It ignores keys does not exist')
-  t.deepEqual(only({foo: 42, bar: 52}, 'foo'), {foo: 42}, 'It ignores keys does not exist')
+  t.deepEqual(only({foo: 42, bar: 52}, 'foo', 'unknow'), {foo: 42}, 'It ignores keys does not exist')
   t.end()
 })
 
