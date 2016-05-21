@@ -218,7 +218,7 @@ export default class Presentation extends React.Component {
               { loc: [0, 0], title: "Type coercion" },
               { loc: [0, 2], note: "Does it throw an error?" },
               { loc: [3, 4], note: "How about it?" },
-              { loc: [5, 7], note: "And even it works fine!" },
+              { loc: [5, 7], note: "And even this works fine!" },
               { loc: [8, 10], note: "One more special value" },
             ]}
           />
@@ -319,7 +319,7 @@ export default class Presentation extends React.Component {
               { loc: [0, 6], note: "We have a person object with some method" },
               { loc: [7, 8], note: "We can call method directly from person" },
               { loc: [9, 11], note: "But, what if we assign person's method to variable" },
-              { loc: [12, 13], title: "Why does it so?", note: "'this' is a tricky thing. It's a reference to current context" },
+              { loc: [12, 13], title: "Why is it so?", note: "'this' is a tricky thing. It's a reference to current context" },
               { loc: [14, 16], note: "We can bind arbitrary context to function" },
               { loc: [17, 19], note: "Or event create custom context" },
 
