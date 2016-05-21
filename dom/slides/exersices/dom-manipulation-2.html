@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+    <ol id="list">
+      <li>Раз ромашка</li>
+      <li>Два ромашка</li>
+      <li>Три ромашка</li>
+      <li>Пять ромашка</li>
+      <li>Семь</li>
+    </ol>
+    <script>
+      var newLi = document.createElement('li');
+      var angryBear = document.createElement('li');
+      newLi.innerHTML = 'А я четвёртую нашёл!';
+      angryBear.innerHTML = '>:[';
+
+      list.insertBefore(newLi, list.children[3]);
+      list.replaceChild(angryBear, list.children[4])
+      list.removeChild(list.children[5])
+    </script>
+</body>
+</html>

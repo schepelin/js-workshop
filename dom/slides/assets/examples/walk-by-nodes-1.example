@@ -1,0 +1,14 @@
+document.documentElement
+document.body
+document.title
+document.charset
+
+...
+
+console.dir(document)
+
+...
+
+...
+
+...

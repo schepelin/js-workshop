@@ -1,0 +1,5 @@
+:not(selector)
+:focus
+:hover
+:empty
+:checked, :disabled, :enabled

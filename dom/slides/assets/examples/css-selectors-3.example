@@ -1,0 +1,14 @@
+:first-child
+:last-child
+:only-child
+:nth-child(a)
+
+:nth-child(an+b)
+:nth-child(2n+1)
+:nth-child(3n+2)
+
+:first-of-type
+:last-of-type
+:only-of-type
+:nth-of-type(n)
+:nth-last-of-type(n)
