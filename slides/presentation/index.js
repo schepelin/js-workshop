@@ -144,22 +144,23 @@ export default class Presentation extends React.Component {
               { loc: [2, 3], note: "You can define variables with const keyword" },
               { loc: [3, 4], note: "You can't reassign a constant" },
               { loc: [5, 7], note: "But, you can modify a value if it's mutuable" },
-              { loc: [8, 11], note: "Second approach is use let keyword" },
+              { loc: [8, 10], note: "Second approach is use let keyword" },
               { loc: [11, 15], note: "let and const are block scope binded" },
               { loc: [16, 20], note: "However, old style var is not" },
-              { loc: [0, 0], title: "Which one is better let or const?" },
+              { loc: [21, 21], title: "Which one is better let or const?" },
               { loc: [21, 27], note: "Object desctructing" },
               { loc: [28, 30], note: "Array desctructing" },
+              { loc: [31, 34], note: "Swap variables" },
 
-              { loc: [31, 33], note: "String has length property" },
-              { loc: [34, 36], note: "Access to char symbols by index" },
-              { loc: [37, 40], note: "Iterate over string" },
-              { loc: [37, 40], note: "Iterate over string" },
-              { loc: [41, 42], note: "Doesn't work. Strings are immutable" },
-              { loc: [42, 45], note: "Every method call returns new string" },
-              { loc: [46, 49], note: "It allows to chain methods calls" },
-              { loc: [50, 51], note: "Strings can be concatenated via +" },
-              { loc: [52, 54], note: "We can get substring by calling slice method" },
+              { loc: [35, 37], note: "String has length property" },
+              { loc: [38, 40], note: "Access to char symbols by index" },
+              { loc: [41, 44], note: "Iterate over string" },
+              { loc: [45, 46], note: "Doesn't work. Strings are immutable" },
+              { loc: [46, 49], note: "Every method call returns new string" },
+              { loc: [50, 53], note: "It allows to chain methods calls" },
+              { loc: [54, 55], note: "Strings can be concatenated via +" },
+              { loc: [56, 59], note: "We can get substring by calling slice method" },
+              { loc: [60, 62], note: "Template string" },
             ]}
           />
 
@@ -170,10 +171,10 @@ export default class Presentation extends React.Component {
             ranges={[
               { loc: [0, 0], title: "Objects" },
               { loc: [0, 6], note: "Simple object definition" },
-              { loc: [7, 11], note: "Access to properties" },
+              { loc: [7, 10], note: "Access to properties" },
               { loc: [10, 11], note: "Any unknown property is undefined" },
               { loc: [13, 19], note: "Modify object properties" },
-              { loc: [21, 36], note: "Real example" },
+              { loc: [21, 36] },
               { loc: [26, 29], note: "Shortcut for creating properties" },
               { loc: [29, 30], note: "Computed property in []" },
 
@@ -258,7 +259,7 @@ export default class Presentation extends React.Component {
               { loc: [8, 11], note: "Arrow function" },
               { loc: [12, 13], note: "Single sile arrow function" },
               { loc: [15, 16], note: "Arrow function example" },
-              { loc: [17, 25], note: "Function with variable number of arguments" },
+              { loc: [17, 25] },
             ]}
           />
 

@@ -29,6 +29,10 @@ const { name, age } = person
 const items = [1, 2, 3, 4]
 const [first, second, ...rest] = items
 
+let a = 10
+let b = 20
+[a, b] = [b, b + a]
+
 const str = 'Some string!'
 str.length  // 12
 
@@ -50,5 +54,9 @@ str
 
 'A' + 'B' === 'AB'
 
-const s = 'test'
-s.slice(2, s.length)  // st
+const s = 'test!'
+s.slice(2, s.length)  // st!
+s.slice(-1) // !
+
+const foo = 42
+const template = `foo is ${foo}`
