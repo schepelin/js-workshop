@@ -13,11 +13,14 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "deep-equal": "^1.0.1",
+    "invariant": "^2.2.1",
     "normalize.css": "3.0.3",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "spectacle": "^1.0.0",
-    "spectacle-code-slide": "^0.1.10"
+    "spectacle-code-slide": "^0.1.10",
+    "warning": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
