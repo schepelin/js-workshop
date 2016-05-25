@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Benchmark</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="insert-bench.js"></script>
+</head>
+<body>
+    <h1>Тест производительности</h1>
+    <p>Данный тест позволяет сравнить производительность вставки элементов в документ.</p>
+    <p>В тесте производится вставка таблицы 20 &times; 20 и выводит <cite>alert</cite> со временем работы функции в миллисекундах.<br/> Можно указать количество итераций для теста, чтобы разница во времени была нагляднее.</p>
+    <input id="iterations" type="text" placeholder="Iterations count" />
+    <p>1. Вставляет TBODY в документ сразу. а затем элементы</p>
+    <button id="first">Append First</button>
+
+    <p>2. Полностью делает TBODY, а затем вставляет в документ</p>
+    <button id="last">Append Then</button>
+
+    <table id="bench-table"></table>
+
+    <script type="text/javascript">
+        const measurePerformance = (func, count) => {
+            let start = new Date().getTime();
+
+            if (count) {
+                for (i = 0; i < count; ++i) {
+                    func();
+                }
+            } else {
+                func();
+            }
+
+            let end = new Date().getTime();
+            let time = end - start;
+            alert('Execution time: ' + time);
+        }
+
+        last.onclick = () => {
+            const count = iterations.value;
+            appendLast.setup();
+            measurePerformance(appendLast.work, count);
+        }
+
+        first.onclick = () => {
+            const count = iterations.value;
+            appendFirst.setup();
+            measurePerformance(appendFirst.work, count);
+        }
+    </script>
+</body>
+</html>
