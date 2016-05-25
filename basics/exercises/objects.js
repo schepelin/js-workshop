@@ -13,7 +13,7 @@ export function collectByFirstLetter(...words) {
 }
 
 /*
-Write a function which receives oject and list of keys
+Write a function which receives object and list of keys
 and returns object with only keys passed in arguments.
 unknown keys are ignored
 ({name: 'John', age: 42}, 'name') yields {name: 'John'}
