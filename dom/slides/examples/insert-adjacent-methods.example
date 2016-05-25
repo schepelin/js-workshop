@@ -1,3 +1,0 @@
-elem.insertAdjacentHTML(position, html)
-elem.insertAdjacentElement(position, newElem)
-elem.insertAdjacentText(position, text)
