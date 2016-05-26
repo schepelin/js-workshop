@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bubbling.css">
+</head>
+
+<body>
+
+  <form>FORM
+    <div>DIV
+      <p>P</p>
+    </div>
+  </form>
+
+  <script type="text/javascript">
+    let elems = document.querySelectorAll('form,div,p');
+
+    for (let i = 0; i < elems.length; i++) {
+      elems[i].addEventListener("click", highlightThis, true);
+      elems[i].addEventListener("click", highlightThis, false);
+    }
+
+    function highlightThis() {
+      this.style.backgroundColor = 'yellow';
+      alert(this.tagName);
+      this.style.backgroundColor = '';
+    }
+  </script>
+</body>
+
+</html>
