@@ -1,6 +1,0 @@
-elem.parentNode
-elem.childNodes
-elem.firstChild
-elem.lastChild
-elem.previousSibling
-elem.nextSibling

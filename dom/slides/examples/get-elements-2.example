@@ -1,5 +1,0 @@
-document.querySelectorAll("p.intro")
-document.querySelectorALL("ul li:first-child")
-document.querySelector("button:active")
-elem.matches("a[href^=http]") // true/false
-elem.closest("ul.open")

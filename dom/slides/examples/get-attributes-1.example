@@ -1,5 +1,0 @@
-elem.hasAttribute(name)
-elem.getAttribute(name)
-elem.setAttribute(name, value)
-elem.removeAttribute(name)
-elem.attributes

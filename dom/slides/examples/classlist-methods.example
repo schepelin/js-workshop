@@ -1,8 +1,0 @@
-elem.classList.contains("class")
-elem.classList.add("class")
-elem.classList.remove("class")
-elem.classList.toggle("class")
-
-for (var i = 0; i < elem.classList.length; i++) {
-  alert( elem.classList[i] );
-}

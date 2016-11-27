@@ -20,7 +20,8 @@ import {
   Quote,
   Slide,
   Spectacle,
-  Text
+  Text,
+  S
 } from "spectacle"
 
 import CodeSlide from "spectacle-code-slide"
@@ -60,6 +61,12 @@ const codeSnippets = {
   attributesDataset: require("raw!../assets/snippets/attributes-dataset.example"),
   insertAdjacentSyntax: require("raw!../assets/snippets/insert-adjacent-syntax.example"),
   insertAdjacentPositions: require("raw!../assets/snippets/insert-adjacent-positions.example"),
+  innerHTML: require("raw!../assets/snippets/innerhtml.example"),
+  innerHTML2: require("raw!../assets/snippets/innerhtml-2.example"),
+  eventTarget: require("raw!../assets/snippets/event-target.example"),
+  eventTarget2: require("raw!../assets/snippets/event-target-2.example"),
+  stopPropagation: require("raw!../assets/snippets/stoppropagation.example"),
+  preventDefault: require("raw!../assets/snippets/preventdefault.example"),
 }
 
 const code = {
@@ -82,6 +89,7 @@ const code = {
   cssSelectors3: require("raw!../assets/examples/css-selectors-3.example"),
   cssSelectors4: require("raw!../assets/examples/css-selectors-4.example"),
   cssSelectors5: require("raw!../assets/examples/css-selectors-5.example"),
+  bubbling: require("raw!../assets/examples/bubbling.example"),
 }
 
 preloader(images)
@@ -99,6 +107,10 @@ export default class Presentation extends React.Component {
     return (
       <Spectacle theme={theme}>
         <Deck transition={["zoom", "slide"]} transitionDuration={500} progress="bar">
+
+          {/*
+            Chapter: Intro
+          */}
 
           <Slide transition={["slide"]} bgColor="black" notes="Вопрос в зал: кто может сказать, что такое DOM? (Кроме расшифровки аббревиатуры ;) )">
             <Heading size={1} fit caps lineHeight={1} textColor="textPrimary">
@@ -119,14 +131,14 @@ export default class Presentation extends React.Component {
             <Heading size={4} caps textColor="textPrimary" textFont="primary">
               DOM?
             </Heading>
-            <Image src={images.htmlCode} margin="20px auto 0" height="500px" />
+            <Image src={images.htmlCode} margin="20px auto 0" height="900px" />
           </Slide>
 
           <Slide transition={["zoom", "fade"]} bgColor="black" notes="<p>А код в dev-tools браузера это DOM? (упомянуть о том, что написанный код здесь может выглядеть иначе, т.к. его исправит и дополнит за нас браузер.)</p><p>Дело в том, что браузеры знают стандарт (какие-то больше, какие-то меньше), и, независимо от того, что написали мы, сделают всё правильно, ну или как считают нужным. :)</p>">
             <Heading size={4} caps textColor="textPrimary" textFont="primary">
               А это DOM?
             </Heading>
-            <Image src={images.devTools} margin="10px auto 0" height="500px" />
+            <Image src={images.devTools} margin="10px auto 0" height="900px" />
             <Appear>
               <Text italic textColor="white">это его визуальное представление</Text>
             </Appear>
@@ -137,14 +149,14 @@ export default class Presentation extends React.Component {
             <Heading size={3} caps textColor="textSecondary" textFont="primary">
               DOM, BOM и JS
             </Heading>
-            <Image src={images.windowTree} margin="30px auto 0" height="190px" />
+            <Image src={images.windowTree} margin="30px auto 0" height="240px" />
           </Slide>
 
           <Slide transition={["slide"]} bgColor="black" notes="Ближе всего рассмотреть DOM в браузере можно, например, с помощью команды console.dir">
             <Heading size={4} textColor="textPrimary" textFont="primary">
               console.dir(document)
             </Heading>
-            <Image src={images.documentObject} margin="10px auto 0" height="550px" />
+            <Image src={images.documentObject} margin="10px auto 0" height="850px" />
           </Slide>
 
           <Slide bgColor="black">
@@ -165,8 +177,8 @@ export default class Presentation extends React.Component {
             </List>
           </Slide>
 
-          <Slide transition={["zoom", "fade"]} bgColor="black" notes="<ul><li>всё, что содержится в DOM - узлы, но не всё элементы</li></ul>">
-            <Heading textColor="textPrimary" size={4} margin="0 auto 40px">Дерево DOM: узлы и элементы</Heading>
+          <Slide transition={["zoom", "fade"]} bgColor="black" notes="<ul><li>как правило, мы видим в DOM только узлы, но...</li><li>если ввести в консоли ... , то там видится ещё кое-что штуки</li><li>не всё, что содержится в DOM является элементами</li></ul>">
+            <Heading textColor="textPrimary" size={4} margin="0 auto 40px">Из чего состоит дерево DOM</Heading>
             <Layout>
               <Fill>
                 <CodePane
@@ -174,8 +186,12 @@ export default class Presentation extends React.Component {
                   lang="html"
                   source={code.htmlCode}
                 />
+                <Appear>
+                  <Text textColor="white"><br/>document.body.childNodes &nbsp;&nbsp;&rarr;</Text>
+                </Appear>
               </Fill>
               &nbsp;
+              <Appear>
               <Fill>
                 <CodePane
                   textSize="1.2rem"
@@ -183,6 +199,7 @@ export default class Presentation extends React.Component {
                   source={code.domTree}
                 />
               </Fill>
+              </Appear>
             </Layout>
           </Slide>
 
@@ -197,6 +214,10 @@ export default class Presentation extends React.Component {
               { loc: [8, 9], note: "Ну, может быть вы захотите использовать комментарии для чего-то хитрого" },
             ]}
           />
+
+          {/*
+            Chapter: Search and Get Elements
+          */}
 
           <Slide transition={["slide"]} bgColor="black">
             <Heading size={2} caps fit textColor="textPrimary" textFont="primary">
@@ -222,6 +243,15 @@ export default class Presentation extends React.Component {
           <CodeSlide
             transition={["slide"]}
             lang="js"
+            code={code.walkByNodes3}
+            ranges={[
+              { loc: [0, 10], title: "Навигация по узлам" },
+            ]}
+          />
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="js"
             code={code.walkByNodes2}
             ranges={[
               { loc: [0, 10], title: "Навигация по элементам" },
@@ -230,16 +260,7 @@ export default class Presentation extends React.Component {
 
           <CodeSlide
             transition={["slide"]}
-            lang="js"
-            code={code.walkByNodes3}
-            ranges={[
-              { loc: [0, 10], title: "Навигация по всем узлам" },
-            ]}
-          />
-
-          <CodeSlide
-            transition={["slide"]}
-            notes="Перед этим мы рассматривали методы для перехода по ближайшим элементам, но так далеко не уйдёшь, ну или ходить будешь долго, поэтому есть методы поиска элементов..."
+            notes="Перед этим мы рассматривали методы для перехода по ближайшим элементам, но так далеко не уйдёшь, поэтому есть методы поиска элементов..."
             lang="js"
             code={code.getElements1}
             ranges={[
@@ -265,6 +286,10 @@ export default class Presentation extends React.Component {
               { loc: [4, 5], note: "Если мы внутри списка с классом open, то мы его найдём" },
             ]}
           />
+
+          {/*
+            Chapter: CSS Selectors
+          */}
 
           <Slide transition={["slide"]} bgColor="black" notes="Поговорим об основных видах CSS-селекторов и поправктикуемся в их использовании">
             <Heading caps size={3} textColor="textPrimary" textFont="primary">
@@ -414,7 +439,7 @@ export default class Presentation extends React.Component {
               <ListItem>Их имя нечувствительно к регистру (ведь это HTML)</ListItem>
               <ListItem>Видны в innerHTML (за исключением старых IE)</ListItem>
             </List>
-            <Text textColor="white" margin="60px 0 0">Потыкать атрибуты в файле <br/><Code textColor="white">[examples/attributes-qualities.html]</Code></Text>
+            <Text textColor="white" margin="60px 0 0">Потыкать атрибуты в файле <br/><Code textColor="white">[praxis/attributes-qualities.html]</Code></Text>
           </Slide>
 
           <Slide transition={["slide"]} bgColor="black" notes="Что это, синхронизация свойств и атрибутов">
@@ -529,21 +554,36 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["slide", "spin"]} bgColor="black" notes="">
             <Heading caps size={2} textColor="textPrimary" textFont="primary">
-              Оптимизация вставки элементов
+              Вставка множества элементов
             </Heading>
           </Slide>
 
           <CodeSlide
             transition={["slide", "spin"]}
-            notes="Второй способ быстрее и даже не из-за перерисовки в браузере, а из-за внутренних оптимизаций, которые происходят если вставлять всё в памяти."
+            notes="<p>Вставить много элементов с пом. описанных выше методов можно двумя способами.</p><p>Второй способ быстрее и даже не из-за перерисовки в браузере, а из-за внутренних оптимизаций, которые происходят если вставлять всё в памяти.</p>"
             lang="js"
             code={code.immediateOrPostponed}
             ranges={[
               { loc: [0, 0], title: "Отложенная вставка" },
-              { loc: [0, 3], note: "Добавляет элемент в конец родителя, последним потомком" },
-              { loc: [4, 7], note: "Вставляет перед элементом, указанным вторым аргументом" },
+              { loc: [0, 3], note: "Добавляет список в документ, и затем наполняет его элементами." },
+              { loc: [4, 7], note: "Набиваем список элементами и затем вставляем его целиков в документ." },
+              { loc: [0, 7], note: "Протестировать производительность этих способов можно на страничке [praxis/insertion-benchmark.html]" },
             ]}
           />
+
+          <Slide transition={["slide"]} bgColor="black" notes="<ol><li>Если элементы пришли строкой html (например AJAX)...</li><li>И вроде бы всё хорошо, но что происходит: перезапись контента, потеря ссылок...</li><li>И что же делать? А есть следующий метод, который позволяет делать большее</li></ol>">
+            <Heading size={3} textColor="textPrimary" textFont="primary">
+              Свойство Element.innerHTML
+            </Heading>
+            <Text textColor="white" margin="30px 0 15px">Добавляем в содержимое элемента:</Text>
+            <CodePane textSize="1.5rem" lang="js" source={codeSnippets.innerHTML} />
+            <Appear>
+              <Text textColor="white" margin="30px 0 15px">Что равнозначно:</Text>
+            </Appear>
+            <Appear>
+              <CodePane textSize="1.5rem" lang="js" source={codeSnippets.innerHTML2} />
+            </Appear>
+          </Slide>
 
           <Slide transition={["slide", "spin"]} bgColor="black" notes="">
             <Heading size={2} textColor="textPrimary" textFont="primary">
@@ -557,7 +597,7 @@ export default class Presentation extends React.Component {
 
           <CodeSlide
             transition={["slide", "spin"]}
-            notes=""
+            notes="На самом деле подобных методов 3<br/>Дополнительные методы для добавления текста или элементов"
             lang="js"
             code={code.insertAdjacentMethods}
             ranges={[
@@ -571,35 +611,35 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["slide"]} bgColor="black" notes="Событий на самом деле намного больше, полный список можно найти по ссылке внизу">
-            <Heading caps size={5} textColor="textPrimary" textFont="primary">
+            <Heading caps size={5} textColor="textPrimary" textFont="primary" margin="0 0 40px 0">
               Основные браузерные события
             </Heading>
 
-            <Text textColor="white" textSize="2rem">События документа:</Text>
-            <List textColor="white" textSize="1.5rem">
+            <Text textColor="white" textSize="2rem" textAlign="left">События документа:</Text>
+            <List textColor="white" textSize="1.5rem" margin="20px 0 30px 40px">
               <ListItem textSize="1.5rem">DOMContentLoaded</ListItem>
               <ListItem textSize="1.5rem">load, beforeunload, unload</ListItem>
             </List>
 
-            <Text textColor="white" textSize="2rem">Пользовательские события:</Text>
-            <List textColor="white" textSize="1.5rem">
+            <Text textColor="white" textSize="2rem" textAlign="left">Пользовательские события:</Text>
+            <List textColor="white" textSize="1.5rem" margin="20px 0 30px 40px">
               <ListItem textSize="1.5rem">События мыши: click, mousedown/mouseup, hover, mousemove, mouseenter/mouseleave...</ListItem>
               <ListItem textSize="1.5rem">События клавиатуры: keydown, keyup</ListItem>
             </List>
 
-            <Text textColor="white" textSize="2rem">События элементов управления (форм):</Text>
-            <List textColor="white" textSize="1.5rem">
+            <Text textColor="white" textSize="2rem" textAlign="left">События элементов управления (форм):</Text>
+            <List textColor="white" textSize="1.5rem" margin="20px 0 30px 40px">
               <ListItem textSize="1.5rem">submit</ListItem>
               <ListItem textSize="1.5rem">focus</ListItem>
             </List>
 
-            <Text textColor="white" textSize="2rem">События CSS:</Text>
-            <List textColor="white" textSize="1.5rem">
+            <Text textColor="white" textSize="2rem" textAlign="left">События CSS:</Text>
+            <List textColor="white" textSize="1.5rem" margin="20px 0 30px 40px">
               <ListItem textSize="1.5rem">transitionend</ListItem>
             </List>
 
             <Text textSize="1.5rem">
-              <Link href="http://www.w3schools.com/jsref/dom_obj_event.asp">HTML DOM Events</Link>
+              <Link href="http://www.w3schools.com/jsref/dom_obj_event.asp" textColor="textPrimary"><S type="underline">HTML DOM Events</S></Link>
             </Text>
           </Slide>
 
@@ -632,6 +672,64 @@ export default class Presentation extends React.Component {
               Event Object
             </Heading>
             <CodePane textSize="1.5rem" lang="html" source={codeSnippets.eventObject} />
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="black" notes="">
+            <Heading size={4} textColor="textPrimary" textFont="primary" margin="30px 0 20px">
+              Всплытие
+            </Heading>
+            <BlockQuote>
+              <Quote textSize="1.5em">При наступлении события обработчики сначала срабатывают на самом вложенном элементе, затем на его родителе, затем выше и так далее, вверх по цепочке вложенности.</Quote>
+            </BlockQuote>
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="black" notes="">
+            <Heading size={4} textColor="textPrimary" textFont="primary" margin="30px 0 20px">
+              Целевой элемент
+            </Heading>
+            <CodePane margin="20px 0 30px" textSize="1.5rem" lang="js" source={codeSnippets.eventTarget} />
+            <Text textColor="white">Внутри обработчика события:</Text>
+            <CodePane margin="20px 0 30px" textSize="1.5rem" lang="js" source={codeSnippets.eventTarget2} />
+          </Slide>
+
+          <CodeSlide
+            transition={["slide"]}
+            notes=""
+            lang="js"
+            code={code.bubbling}
+            ranges={[
+              { loc: [0, 0], title: "Bubbling" },
+              { loc: [0, 1], note: "получаем список всех элементов" },
+              { loc: [2, 6], note: "назначаем каждому из них обработчики" },
+              { loc: [3, 4], note: 'перехват при "погружении"' },
+              { loc: [4, 5], note: 'перехват при "всплытии"' },
+              { loc: [7, 12], note: "подсвечиваем элемент на котором сейчас находится событие" },
+            ]}
+          />
+
+          <Slide transition={["slide"]} bgColor="black" notes="">
+            <Heading size={4} textColor="textPrimary" textFont="primary" margin="30px 0 20px">
+              Прекращение всплытия
+            </Heading>
+            <CodePane margin="20px 0 30px" textSize="1.5rem" lang="js" source={codeSnippets.stopPropagation} />
+            <Heading size={4} textColor="textPrimary" textFont="primary" margin="30px 0 20px">
+              Отмена действий браузера
+            </Heading>
+            <Text textColor="white">Переход по ссылке не произойдёт:</Text>
+            <CodePane margin="20px 0 30px" textSize="1.5rem" lang="html" source={codeSnippets.preventDefault} />
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="black" notes="">
+            <Heading caps size={3} textColor="textPrimary" textFont="primary" textAlign="left">
+              Материалы
+            </Heading>
+            <Text textColor="white" textAlign="left">для самообразования</Text>
+            <List textColor="white">
+              <ListItem><Link href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction" textColor="textPrimary">MDN &mdash; Introduction to the DOM</Link></ListItem>
+              <ListItem><Link href="http://www.w3schools.com/jsref/dom_obj_document.asp" textColor="textPrimary">w3schools &mdash; HTML DOM</Link></ListItem>
+              <ListItem><Link href="https://learn.javascript.ru/document" textColor="textPrimary">learn.javascript.ru &mdash; Документ и объекты страницы</Link></ListItem>
+              <ListItem><Link href="https://dom.spec.whatwg.org/" textColor="textPrimary">Living DOM Standard</Link></ListItem>
+            </List>
           </Slide>
 
           <Slide transition={["slide"]} bgColor="black" notes="">

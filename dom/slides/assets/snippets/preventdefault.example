@@ -1,0 +1,2 @@
+<a href="/" onclick="return false">Go Home</a>
+<a href="/" onclick="event.preventDefault()">Home</a>
