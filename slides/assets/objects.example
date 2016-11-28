@@ -35,7 +35,7 @@ function getCar(producer, model, price) {
   }
 }
 
-const car = getCar('Reno', 'Logan', 5000)
+const car = getCar('Renault', 'Logan', 5000)
 car.isBudget() // true
 
 // create via destruction
